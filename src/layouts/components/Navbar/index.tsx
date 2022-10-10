@@ -1,9 +1,10 @@
 import { Popover, Transition } from "@headlessui/react";
-import { FC, Fragment } from "react";
-import { MobileNavbar } from "./Mobile";
-import { WebNavbar } from "./Web";
+import { FC, Fragment, lazy } from "react";
 
-export const Navbar: FC = () => {
+const WebNavbar = lazy(() => import("./Web"));
+const MobileNavbar = lazy(() => import("./Mobile"));
+
+const Navbar: FC = () => {
   return (
     <Popover className="bg-primary-900 sticky top-0 z-20">
       <WebNavbar />
@@ -27,3 +28,5 @@ export const Navbar: FC = () => {
     </Popover>
   )
 }
+
+export default Navbar;

@@ -1,10 +1,10 @@
-import { FC, Suspense } from "react";
+import { FC, lazy, Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Home } from "./features/Home";
 import { Loading } from "./features/Loading";
-import { NotFound } from "./features/NotFound";
 
-import { BaseLayout } from "./layouts/base";
+const BaseLayout = lazy(() => import("./layouts/base"));
+const NotFound = lazy(() => import("./features/NotFound"));
+const Home = lazy(() => import("./features/Home"));
 
 const App: FC = () => {
   return (

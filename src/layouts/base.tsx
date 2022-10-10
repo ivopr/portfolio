@@ -1,12 +1,13 @@
-import { FC } from "react";
-import { LanguageToggler } from "./components/LanguageToggler";
-import { Navbar } from "./components/Navbar";
+import { FC, lazy } from "react";
+
+const LanguageToggler = lazy(() => import("./components/LanguageToggler"));
+const Navbar = lazy(() => import("./components/Navbar"));
 
 type BaseLayoutProps = {
   children: JSX.Element;
 };
 
-export const BaseLayout: FC<BaseLayoutProps> = ({ children }) => {
+const BaseLayout: FC<BaseLayoutProps> = ({ children }) => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
@@ -21,3 +22,5 @@ export const BaseLayout: FC<BaseLayoutProps> = ({ children }) => {
     </div>
   );
 };
+
+export default BaseLayout;

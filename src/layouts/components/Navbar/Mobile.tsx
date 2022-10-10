@@ -7,7 +7,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import { links } from "./data";
 import { classNames } from "../../../utils";
 
-export const MobileNavbar: FC = () => {
+const MobileNavbar: FC = () => {
   const location = useLocation();
   const { t } = useTranslation(["common", "navigation"]);
 
@@ -53,3 +53,5 @@ export const MobileNavbar: FC = () => {
     </div>
   );
 };
+
+export default MobileNavbar;

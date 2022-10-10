@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { changePageTitle } from "../../utils/changePageTitle";
 import { badgeData } from "./badgeData";
 
-export const Home: FC = () => {
+const Home: FC = () => {
   const { t } = useTranslation(["common", "home", "navigation"]);
 
   changePageTitle(t("navigation:about-me"), t("common:app-name"));
@@ -39,3 +39,5 @@ export const Home: FC = () => {
     </>
   )
 }
+
+export default Home;

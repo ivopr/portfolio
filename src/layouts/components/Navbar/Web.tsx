@@ -7,7 +7,7 @@ import { AiOutlineMenu, AiOutlineUser } from "react-icons/ai";
 import { links } from "./data";
 import { classNames } from "../../../utils";
 
-export const WebNavbar: FC = () => {
+const WebNavbar: FC = () => {
   const location = useLocation();
   const { t } = useTranslation(["common", "navigation"]);
 
@@ -48,3 +48,5 @@ export const WebNavbar: FC = () => {
     </div>
   );
 };
+
+export default WebNavbar;

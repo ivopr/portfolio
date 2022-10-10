@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Button } from "../../layouts/components/Button";
 import { changePageTitle } from "../../utils/changePageTitle";
 
-export const NotFound: FC = () => {
+const NotFound: FC = () => {
   const { t } = useTranslation(["common"]);
 
   changePageTitle(t("common:404.title"), t("common:app-name"));
@@ -23,3 +23,5 @@ export const NotFound: FC = () => {
     </main>
   )
 }
+
+export default NotFound;
