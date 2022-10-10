@@ -1,0 +1,7 @@
+{
+  "app-name": "A Nice Portfolio",
+  "404": {
+    "title": "Page Not Found",
+    "go-home": "Go Home"
+  }
+}
