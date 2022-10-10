@@ -3,5 +3,9 @@
     "description": "Estudante de Ciência da Computação na Fundação Universidade Federal de Rondônia (UNIR).\nConstruindo ferramentas web for para pesquisas em bioinformática.\nReact Native fanboy.",
     "using": "O que eu uso e tenho familiaridade:"
   },
+  "cv": {
+    "lattes": "Lattes",
+    "title": "Você pode ver meu curriculum no:"
+  },
   "title": "Inicio"
 }

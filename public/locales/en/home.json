@@ -3,5 +3,9 @@
     "description": "Computer Science student at Fundação Universidade Federal de Rondônia (UNIR).\nBuilding web tools for bioinformatics researches.\nReact Native fanboy.",
     "using": "What I'm using or am familiar with:"
   },
+  "cv": {
+    "lattes": "Lattes",
+    "title": "You can see my CV on:"
+  },
   "title": "Home"
 }
