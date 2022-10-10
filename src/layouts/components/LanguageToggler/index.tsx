@@ -21,7 +21,7 @@ const LanguageToggler: FC = () => {
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
-        <Menu.Button>
+        <Menu.Button as="div">
           <Button className="flex gap-2 w-64 justify-center">
             {i18n.language === "en" ? <img src={usa} className="w-5 h-5 mr-2" /> : <img src={bra} className="w-5 h-5 mr-2" />}
             {i18n.language === "en" ? "English" : "Português (BR)"}

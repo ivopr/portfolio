@@ -1,7 +1,8 @@
-import { FC } from "react";
+import { FC, lazy } from "react";
 import { useTranslation } from "react-i18next";
 import { changePageTitle } from "../../utils/changePageTitle";
 import { badgeData } from "./badgeData";
+import me from "../../assets/me.jpeg";
 
 const Home: FC = () => {
   const { t } = useTranslation(["common", "home", "navigation"]);
@@ -11,11 +12,12 @@ const Home: FC = () => {
   return (
     <>
       {/* Introduction */}
-      <section className="mx-auto flex flex-col items-center gap-6 md:flex-row md:w-3/5">
+      <section className="mx-auto flex flex-col items-center gap-6 md:flex-row md:w-4/5 lg:w-4/6">
         <div className="m-auto w-52 h-52 rounded-full shadow-md shadow-primary-500 overflow-hidden">
           <img 
             className="w-full h-full"
-            src="https://github.com/ivopr.png"
+            src={me}
+            loading="lazy"
             alt="Ivo Vieira"
           />
         </div>

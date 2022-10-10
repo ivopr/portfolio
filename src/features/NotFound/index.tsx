@@ -10,7 +10,7 @@ const NotFound: FC = () => {
   changePageTitle(t("common:404.title"), t("common:app-name"));
 
   return (
-    <main className="h-full w-full flex flex-col justify-center items-center bg-primary-900">
+    <main className="flex flex-1 flex-col justify-center items-center min-w-full">
       <h1 className="text-9xl font-extrabold text-white tracking-widest">404</h1>
       <div className="bg-primary-500 px-2 text-sm rounded rotate-12 absolute">
         {t("common:404.title")}

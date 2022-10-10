@@ -1,7 +1,6 @@
-import { FC, lazy } from "react";
-
-const LanguageToggler = lazy(() => import("./components/LanguageToggler"));
-const Navbar = lazy(() => import("./components/Navbar"));
+import { FC } from "react";
+import LanguageToggler from "./components/LanguageToggler";
+import Navbar from "./components/Navbar";
 
 type BaseLayoutProps = {
   children: JSX.Element;
@@ -9,7 +8,7 @@ type BaseLayoutProps = {
 
 const BaseLayout: FC<BaseLayoutProps> = ({ children }) => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen w-screen flex flex-1 flex-col">
       <Navbar />
 
       <section className="flex py-5 items-center justify-center">

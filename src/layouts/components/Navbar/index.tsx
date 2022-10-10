@@ -1,8 +1,7 @@
 import { Popover, Transition } from "@headlessui/react";
 import { FC, Fragment, lazy } from "react";
-
-const WebNavbar = lazy(() => import("./Web"));
-const MobileNavbar = lazy(() => import("./Mobile"));
+import MobileNavbar from "./Mobile";
+import WebNavbar from "./Web";
 
 const Navbar: FC = () => {
   return (
