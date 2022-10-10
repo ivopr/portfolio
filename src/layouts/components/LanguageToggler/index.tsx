@@ -1,7 +1,7 @@
 import { Menu, Transition } from "@headlessui/react";
 import { FC, Fragment } from "react";
 import { useTranslation } from "react-i18next";
-import { AiOutlineArrowDown } from "react-icons/ai"
+import { BsChevronDown } from "react-icons/bs";
 import { Button } from "../Button";
 
 import bra from "svg-country-flags/svg/br.svg"
@@ -25,7 +25,7 @@ const LanguageToggler: FC = () => {
           <Button className="flex gap-2 w-64 justify-center">
             {i18n.language === "en" ? <img src={usa} className="w-5 h-5 mr-2" /> : <img src={bra} className="w-5 h-5 mr-2" />}
             {i18n.language === "en" ? "English" : "Português (BR)"}
-            <AiOutlineArrowDown className="ml-2 h-5 w-5" aria-hidden="true" />
+            <BsChevronDown className="ml-1 h-5 w-5" aria-hidden="true" />
           </Button>
         </Menu.Button>
       </div>
