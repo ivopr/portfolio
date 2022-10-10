@@ -21,6 +21,7 @@ specifiers:
   tailwindcss: ^3.1.8
   typescript: ^4.6.4
   vite: ^3.1.0
+  vite-plugin-radar: ^0.5.0
 
 dependencies:
   '@headlessui/react': 1.7.3_biqbaboplfbrettd7655fr4n2y
@@ -45,6 +46,7 @@ devDependencies:
   tailwindcss: 3.1.8_postcss@8.4.17
   typescript: 4.8.4
   vite: 3.1.6
+  vite-plugin-radar: 0.5.0_vite@3.1.6
 
 packages:
 
@@ -1446,6 +1448,14 @@ packages:
 
   /util-deprecate/1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
+    dev: true
+
+  /vite-plugin-radar/0.5.0_vite@3.1.6:
+    resolution: {integrity: sha512-3QiXReftTGeDd9o6o+z4q+bTEb1xJr9O5IE/YbcrTcZtaiDwQuZkXb0v3XwhFVcODd2HqEcwLYTmz0n+xqrspQ==}
+    peerDependencies:
+      vite: ^2.0.0 || ^3.0.0
+    dependencies:
+      vite: 3.1.6
     dev: true
 
   /vite/3.1.6:

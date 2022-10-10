@@ -1,5 +1,6 @@
 import react from "@vitejs/plugin-react";
 import { defineConfig, PluginOption } from "vite";
+import {VitePluginRadar} from "vite-plugin-radar";
 
 function I18nHotReload(): PluginOption {
   return {
@@ -19,5 +20,13 @@ function I18nHotReload(): PluginOption {
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), I18nHotReload()],
+  plugins: [
+    react(), 
+    I18nHotReload(), 
+    VitePluginRadar({
+      analytics: {
+        id: "G-HZC72N296P"
+      }
+    })
+  ],
 });
