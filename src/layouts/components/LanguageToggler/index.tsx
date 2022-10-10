@@ -2,10 +2,12 @@ import { Menu, Transition } from "@headlessui/react";
 import { FC, Fragment } from "react";
 import { useTranslation } from "react-i18next";
 import { AiOutlineArrowDown } from "react-icons/ai"
-import Flag from "react-world-flags";
 import { Button } from "../Button";
 
-export const LanguageToggler: FC = () => {
+import bra from "svg-country-flags/svg/br.svg"
+import usa from "svg-country-flags/svg/us.svg"
+
+const LanguageToggler: FC = () => {
   const { i18n } = useTranslation();
 
   const changeToPTBR = () => {
@@ -21,7 +23,7 @@ export const LanguageToggler: FC = () => {
       <div>
         <Menu.Button>
           <Button className="flex gap-2 w-64 justify-center">
-            {i18n.language === "en" ? <Flag code="usa" className="w-5 h-5 mr-2" /> : <Flag code="bra" className="w-5 h-5 mr-2" />}
+            {i18n.language === "en" ? <img src={usa} className="w-5 h-5 mr-2" /> : <img src={bra} className="w-5 h-5 mr-2" />}
             {i18n.language === "en" ? "English" : "Português (BR)"}
             <AiOutlineArrowDown className="ml-2 h-5 w-5" aria-hidden="true" />
           </Button>
@@ -42,7 +44,7 @@ export const LanguageToggler: FC = () => {
             <Menu.Item>
               {() => (
                 <button className="flex gap-2 py-2 px-4 hover:bg-primary-800 w-full hover:text-primary-200" onClick={changeToEN}>
-                  <Flag code="usa" className="w-5 h-5 mr-2" />
+                  <img src={usa} className="w-5 h-5 mr-2" />
                   English
                 </button>
               )}
@@ -50,7 +52,7 @@ export const LanguageToggler: FC = () => {
             <Menu.Item>
               {() => (
                 <button className="flex gap-2 py-2 px-4 hover:bg-primary-800 w-full hover:text-primary-200" onClick={changeToPTBR}>
-                    <Flag code="bra" className="w-5 h-5 mr-2" />
+                    <img src={bra} className="w-5 h-5 mr-2" />
                     Português (BR)
                 </button>
               )}
@@ -61,3 +63,5 @@ export const LanguageToggler: FC = () => {
     </Menu>
   );
 };
+
+export default LanguageToggler;
