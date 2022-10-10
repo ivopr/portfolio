@@ -41,7 +41,7 @@ const Home: FC = () => {
           </div>
           <h5 className="mt-5 text-sm">{t("home:cv.title")}</h5>
           <div className="flex flex-wrap gap-2 mt-2">
-            <a href="http://lattes.cnpq.br/5130583751808996" className="flex flex-1">
+            <a href="http://lattes.cnpq.br/5130583751808996">
               <Button className="flex justify-center items-center gap-2">
                 {t("home:cv.lattes")}
                 <BiLinkExternal className="h-4 w-4" />
