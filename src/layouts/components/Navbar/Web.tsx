@@ -6,6 +6,7 @@ import { AiOutlineMenu, AiOutlineUser } from "react-icons/ai";
 
 import { links } from "./data";
 import { classNames } from "../../../utils";
+import LanguageToggler from "../LanguageToggler";
 
 const WebNavbar: FC = () => {
   const location = useLocation();
@@ -43,6 +44,7 @@ const WebNavbar: FC = () => {
               {t(`navigation:${link.name}`)}
             </Link>
           ))}
+          <LanguageToggler />
         </nav>
       </div>
     </div>

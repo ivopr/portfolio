@@ -6,6 +6,7 @@ import { AiOutlineClose } from "react-icons/ai";
 
 import { links } from "./data";
 import { classNames } from "../../../utils";
+import LanguageToggler from "../LanguageToggler";
 
 const MobileNavbar: FC = () => {
   const location = useLocation();
@@ -27,28 +28,29 @@ const MobileNavbar: FC = () => {
             </Popover.Button>
           </div>
         </div>
-        <div className="mt-6">
-          <nav className="grid gap-y-8">
-            {links.map((link) => (
-              <Popover.Button
-                as={Link}
-                key={link.href}
-                to={link.href}
-                className={classNames(
-                  location.pathname === link.href
-                    ? "text-primary-50 hover:text-primary-100"
-                    : "text-primary-200 hover:text-primary-100",
-                  "prose font-medium flex gap-2"
-                )}
-              >
-                <>
-                  <link.Icon className="h-5 w-5" />
-                  {t(`navigation:${link.name}`)}
-                </>
-              </Popover.Button>
-            ))}
-          </nav>
+        <div className="flex my-6">
+          <LanguageToggler isMobile />
         </div>
+        <nav className="grid gap-y-8">
+          {links.map((link) => (
+            <Popover.Button
+              as={Link}
+              key={link.href}
+              to={link.href}
+              className={classNames(
+                location.pathname === link.href
+                  ? "text-primary-50 hover:text-primary-100"
+                  : "text-primary-200 hover:text-primary-100",
+                "prose font-medium flex gap-2"
+              )}
+            >
+              <>
+                <link.Icon className="h-5 w-5" />
+                {t(`navigation:${link.name}`)}
+              </>
+            </Popover.Button>
+          ))}
+        </nav>
       </div>
     </div>
   );

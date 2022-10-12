@@ -11,9 +11,9 @@ export const links = [
     href: "/projects",
     Icon: AiOutlineProject
   },
-  {
-    name: "posts",
-    href: "/posts",
-    Icon: AiOutlineFile
-  },
+  // {
+  //   name: "posts",
+  //   href: "/posts",
+  //   Icon: AiOutlineFile
+  // },
 ];
