@@ -74,10 +74,21 @@ const ProjectDetails: FC = () => {
   );
 };
 
-export const getStaticPaths: GetStaticPaths = () => {
+export const getStaticPaths: GetStaticPaths = ({ locales }) => {
+  const paths = [];
+
+  for (const locale of locales) {
+    paths.push({
+      params: {
+        name: "ictiobiometria",
+        locale,
+      },
+    });
+  }
+
   return {
-    fallback: true,
-    paths: [{ params: { name: "ictiobiometria" } }],
+    fallback: false,
+    paths,
   };
 };
 
