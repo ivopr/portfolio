@@ -1,0 +1,8 @@
+{
+  "ictiobiometria": {
+    "title": "Ictiobiometria",
+    "description": "Um aplicativo móvel para auxiliar na medição de peixes usando Inteligência Artificial.\nIctiobiometria é um projeto em parceria com o Laboratório de Ictiologia e Pesca da Universidade Federal de Rondônia, para auxiliar no processo de medição de peixes na bacia do rio Madeira, como um dos procedimentos necessários para identificar padrões de migração reprodutiva e monitorar o impacto ambiental causado. por ações antrópicas na bacia.\nAntes do aplicativo, esse processo era manual, exigindo que o pesquisador estivesse presente na peixaria local, com uma fita métrica e um papel, em dias de maior movimento muitos dados de peixes podiam ser perdidos devido ao tempo é necessário medir manualmente e anotar cada peixe.\nAgora, basta o pesquisador tirar uma foto com um peixe e uma régua na cor rosa, o restante é calculado automaticamente pela nossa Rede Neural. E agora, a população em geral pode ajudar enviando novas imagens de peixes pelo app. Todos os dados são armazenados em um servidor na Universidade e não são compartilhados com terceiros."
+  },
+  "project": "Projeto",
+  "title": "Meus Projetos"
+}

@@ -1,0 +1,8 @@
+{
+  "app-name": "Um Portfólio Bacana",
+  "listening": "Eu estou escutando",
+  "404": {
+    "title": "Página Não Encontrada",
+    "go-home": "Ir para o início"
+  }
+}
