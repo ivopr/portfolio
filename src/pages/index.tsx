@@ -7,8 +7,8 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { FC } from "react";
 
 import me from "../assets/me.jpeg";
+import { Badges } from "../components/Badges";
 import { Button } from "../components/Button";
-import { badgeData } from "../utils/badgeData";
 
 const Home: FC = () => {
   const { t } = useTranslation(["common", "home", "navigation"]);
@@ -30,17 +30,7 @@ const Home: FC = () => {
           <span className="prose text-justify text-base font-medium">
             {t("home:about.description")}
           </span>
-          <h5 className="mt-5 text-sm">{t("home:about.using")}</h5>
-          <div className="mt-2 flex flex-wrap gap-1">
-            {badgeData.map((badgeUrl) => (
-              <img
-                className="pointer-events-none"
-                key={badgeUrl}
-                src={badgeUrl}
-                alt="My Stack Item"
-              />
-            ))}
-          </div>
+          <Badges />
           <h5 className="mt-5 text-sm">{t("home:cv.title")}</h5>
           <div className="mt-2 flex flex-wrap gap-2">
             <a href="http://lattes.cnpq.br/5130583751808996">
