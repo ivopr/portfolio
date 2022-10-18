@@ -1,11 +1,12 @@
 import { Popover, Transition } from "@headlessui/react";
 import { FC, Fragment } from "react";
+
 import MobileNavbar from "./Mobile";
 import WebNavbar from "./Web";
 
 const Navbar: FC = () => {
   return (
-    <Popover className="bg-primary-900 sticky top-0 z-20">
+    <Popover className="sticky top-0 z-20 bg-primary-900">
       <WebNavbar />
 
       <Transition
@@ -25,7 +26,7 @@ const Navbar: FC = () => {
         </Popover.Panel>
       </Transition>
     </Popover>
-  )
-}
+  );
+};
 
 export default Navbar;

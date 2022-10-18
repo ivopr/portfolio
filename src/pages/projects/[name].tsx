@@ -1,17 +1,25 @@
 import "react-alice-carousel/lib/alice-carousel.css";
 
-import { GetStaticPaths, GetStaticProps } from "next";
+import {
+  GetStaticPaths,
+  GetStaticProps,
+  InferGetStaticPropsType,
+  NextPage,
+} from "next";
 import Head from "next/head";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { FC } from "react";
+import { getPlaiceholder } from "plaiceholder";
 import AliceCarousel from "react-alice-carousel";
 
 import { projectsData } from "../../utils/projectsData";
 import NotFound from "../404";
 
-const ProjectDetails: FC = () => {
+const ProjectDetails: NextPage<
+  InferGetStaticPropsType<typeof getStaticProps>
+> = ({ blur }) => {
   const { query } = useRouter();
   const { name } = query;
   const { t } = useTranslation(["projects", "common"]);
@@ -22,16 +30,16 @@ const ProjectDetails: FC = () => {
     return <NotFound />;
   }
 
-  const carouselItems = project.images.map((image, idx) => (
-    <img
-      key={image + idx}
-      alt={project.name}
-      className="pointer-events-none max-h-80 w-fit select-none rounded-lg shadow shadow-primary-400"
-      data-value={idx}
-      role="presentation"
-      src={image}
-    />
-  ));
+  const carouselItems = blur.map((image, idx) => {
+    return (
+      <div
+        className="pointer-events-none relative h-80 w-40 select-none rounded-lg shadow shadow-primary-400"
+        key={image + idx}
+      >
+        <Image alt={project.name} role="presentation" {...image} />
+      </div>
+    );
+  });
 
   return (
     <div className="mx-auto w-full md:w-4/5 lg:w-4/6">
@@ -51,7 +59,7 @@ const ProjectDetails: FC = () => {
         {t(`projects:${name}.title`)}
       </h2>
 
-      <div className="my-6 select-none">
+      <div className="my-6 h-80 select-none">
         <AliceCarousel
           controlsStrategy="responsive"
           disableButtonsControls
@@ -81,9 +89,34 @@ export const getStaticPaths: GetStaticPaths = () => {
   };
 };
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
+  const { name } = params;
+
+  const project = projectsData.find((p) => p.name === name);
+
+  if (!project) {
+    return {
+      props: {
+        ...(await serverSideTranslations(locale, [
+          "common",
+          "projects",
+          "navigation",
+        ])),
+      },
+    };
+  }
+
+  const blur = [];
+
+  for await (const i of project.images) {
+    const plhd = await getPlaiceholder(i);
+
+    blur.push({ ...plhd.img, blurDataURL: plhd.base64 });
+  }
+
   return {
     props: {
+      blur,
       ...(await serverSideTranslations(locale, [
         "common",
         "projects",

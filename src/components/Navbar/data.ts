@@ -1,15 +1,15 @@
-import { User, File } from "lucide-react";
+import { File, User } from "lucide-react";
 
 export const links = [
   {
     name: "about-me",
     href: "/",
-    Icon: User
+    Icon: User,
   },
   {
     name: "projects",
     href: "/projects",
-    Icon: File
+    Icon: File,
   },
   // {
   //   name: "posts",
