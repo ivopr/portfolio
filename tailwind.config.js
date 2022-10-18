@@ -17,12 +17,13 @@ module.exports = {
           600: "#41558B",
           700: "#313F68",
           800: "#202A46",
-          900: "#101523"
-        }
-      }
+          900: "#101523",
+        },
+      },
     },
   },
   plugins: [
     require("@tailwindcss/line-clamp"),
+    require("tailwindcss-patterns"),
   ],
-}
+};

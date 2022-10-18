@@ -15,6 +15,7 @@
 html {
   @apply text-gray-100;
   @apply bg-primary-900;
+  @apply pattern-crosses-primary-700/50;
   @apply w-screen;
   @apply overflow-x-hidden;
   font-family: 'Poppins', sans-serif;
