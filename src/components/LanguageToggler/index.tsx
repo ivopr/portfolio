@@ -23,11 +23,11 @@ const LanguageToggler: FC<LanguageTogglerProps> = ({ isMobile }) => {
   };
 
   const changeToPTBR = () => {
-    onToggleLanguageClick("ptbr");
+    onToggleLanguageClick("pt-BR");
   };
 
   const changeToEN = () => {
-    onToggleLanguageClick("en");
+    onToggleLanguageClick("en-US");
   };
 
   return (
@@ -38,10 +38,10 @@ const LanguageToggler: FC<LanguageTogglerProps> = ({ isMobile }) => {
           parentClassName="w-full"
         >
           <span className="relative h-5 w-5">
-            <Image src={i18n.language === "en" ? usa : bra} layout="fill" />
+            <Image src={i18n.language === "en-US" ? usa : bra} layout="fill" />
           </span>
           {isMobile
-            ? i18n.language === "en"
+            ? i18n.language === "en-US"
               ? "English"
               : "Português (BR)"
             : null}

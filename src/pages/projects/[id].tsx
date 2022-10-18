@@ -1,19 +1,22 @@
 import "react-alice-carousel/lib/alice-carousel.css";
 
-import { GetStaticPaths, GetStaticProps } from "next";
+import {
+  GetStaticPaths,
+  GetStaticProps,
+  InferGetStaticPropsType,
+  NextPage,
+} from "next";
 import Head from "next/head";
-import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { FC } from "react";
 import AliceCarousel from "react-alice-carousel";
 
 import { projectsData } from "../../utils/projectsData";
 import NotFound from "../404";
 
-const ProjectDetails: FC = () => {
-  const { query } = useRouter();
-  const { name } = query;
+const ProjectDetails: NextPage<
+  InferGetStaticPropsType<typeof getStaticProps>
+> = ({ name }) => {
   const { t } = useTranslation(["projects", "common"]);
 
   const project = projectsData.find((p) => p.name === name);
@@ -74,27 +77,20 @@ const ProjectDetails: FC = () => {
   );
 };
 
-export const getStaticPaths: GetStaticPaths = ({ locales }) => {
-  const paths = [];
-
-  for (const locale of locales) {
-    paths.push({
-      params: {
-        name: "ictiobiometria",
-        locale,
-      },
-    });
-  }
-
+export const getStaticPaths: GetStaticPaths = () => {
   return {
-    fallback: false,
-    paths,
+    fallback: true,
+    paths: [
+      { params: { id: "ictiobiometria" } },
+      { params: { id: "ictiobiometria" }, locale: "pt-BR" },
+    ],
   };
 };
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export const getStaticProps: GetStaticProps = async ({ locale, params }) => {
   return {
     props: {
+      name: params.id,
       ...(await serverSideTranslations(locale, [
         "common",
         "projects",
