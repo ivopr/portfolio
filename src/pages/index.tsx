@@ -27,7 +27,7 @@ const Home: FC = () => {
           <h2 className="mt-2.5 text-center text-3xl text-primary-200 md:mt-0 md:text-left">
             Ivo Vieira
           </h2>
-          <span className="prose text-justify text-base font-medium">
+          <span className="prose text-base font-medium">
             {t("home:about.description")}
           </span>
           <Badges />

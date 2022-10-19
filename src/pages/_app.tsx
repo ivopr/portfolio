@@ -14,7 +14,7 @@ function MyApp({ Component, pageProps }) {
       <Suspense fallback={<Loading />}>
         <Navbar />
 
-        <div className="mx-auto mt-6">
+        <div className="mx-auto mt-6 w-full">
           <NowPlaying />
         </div>
 
