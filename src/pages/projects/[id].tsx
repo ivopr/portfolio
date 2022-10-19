@@ -6,13 +6,20 @@ import {
   InferGetStaticPropsType,
   NextPage,
 } from "next";
+import dynamic from "next/dynamic";
 import Head from "next/head";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import AliceCarousel from "react-alice-carousel";
 
 import { projectsData } from "../../utils/projectsData";
-import NotFound from "../404";
+
+const NotFound = dynamic(() => import("../404"), {
+  suspense: true,
+});
+
+const AliceCarousel = dynamic(() => import("react-alice-carousel"), {
+  suspense: true,
+});
 
 const ProjectDetails: NextPage<
   InferGetStaticPropsType<typeof getStaticProps>
@@ -29,7 +36,7 @@ const ProjectDetails: NextPage<
     <img
       key={image + idx}
       alt={project.name}
-      className="pointer-events-none max-h-80 w-fit select-none rounded-lg shadow shadow-primary-400"
+      className="pointer-events-none h-80 w-fit select-none rounded-lg shadow shadow-primary-400"
       data-value={idx}
       role="presentation"
       src={image}
@@ -54,7 +61,7 @@ const ProjectDetails: NextPage<
         {t(`projects:${name}.title`)}
       </h2>
 
-      <div className="my-6 select-none">
+      <div className="my-6 h-80 select-none">
         <AliceCarousel
           controlsStrategy="responsive"
           disableButtonsControls

@@ -5,7 +5,7 @@ import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { FC } from "react";
 
-import { Button } from "../components/Button";
+import Button from "../components/Button";
 
 const NotFound: FC = () => {
   const { t } = useTranslation(["common"]);

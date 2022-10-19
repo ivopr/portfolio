@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useTranslation } from "next-i18next";
+import { FC } from "react";
 
 import archBadge from "../../assets/archlinux.svg";
 import cssBadge from "../../assets/css3.svg";
@@ -11,7 +12,7 @@ import reactBadge from "../../assets/react.svg";
 import reactNativeBagde from "../../assets/reactnative.svg";
 import typescriptBadge from "../../assets/typescript.svg";
 
-export const Badges = () => {
+const Badges: FC = () => {
   const { t } = useTranslation(["home"]);
 
   return (
@@ -31,3 +32,5 @@ export const Badges = () => {
     </>
   );
 };
+
+export default Badges;

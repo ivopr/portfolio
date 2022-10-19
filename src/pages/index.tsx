@@ -1,5 +1,6 @@
 import { ExternalLink } from "lucide-react";
 import { GetStaticProps } from "next";
+import dynamic from "next/dynamic";
 import Head from "next/head";
 import Image from "next/image";
 import { useTranslation } from "next-i18next";
@@ -7,8 +8,14 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { FC } from "react";
 
 import me from "../assets/me.jpeg";
-import { Badges } from "../components/Badges";
-import { Button } from "../components/Button";
+
+const Badges = dynamic(() => import("../components/Badges"), {
+  suspense: true,
+});
+
+const Button = dynamic(() => import("../components/Button"), {
+  suspense: true,
+});
 
 const Home: FC = () => {
   const { t } = useTranslation(["common", "home", "navigation"]);
@@ -27,7 +34,7 @@ const Home: FC = () => {
           <h2 className="mt-2.5 text-center text-3xl text-primary-200 md:mt-0 md:text-left">
             Ivo Vieira
           </h2>
-          <span className="prose text-base font-medium">
+          <span className="prose text-justify text-base font-medium">
             {t("home:about.description")}
           </span>
           <Badges />

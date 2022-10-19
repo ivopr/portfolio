@@ -25,7 +25,7 @@ export default function NowPlaying() {
         <div className="max-w-fit flex-row truncate text-center sm:inline-flex">
           {data?.songUrl ? (
             <a
-              className="mx-auto max-w-max truncate text-center font-medium  text-gray-800 dark:text-gray-200"
+              className="mx-auto max-w-max truncate text-center font-medium text-gray-200"
               href={data.songUrl}
               target="_blank"
               rel="noopener noreferrer"
@@ -33,14 +33,10 @@ export default function NowPlaying() {
               {data.title}
             </a>
           ) : (
-            <p className="font-medium text-gray-800 dark:text-gray-200">
-              Not Playing
-            </p>
+            <p className="font-medium text-gray-200">Not Playing</p>
           )}
-          <span className="mx-2 hidden text-gray-500 dark:text-gray-300 sm:block">
-            {" – "}
-          </span>
-          <p className="mx-auto max-w-max truncate text-gray-500 dark:text-gray-300">
+          <span className="mx-2 hidden text-gray-300 sm:block">{" – "}</span>
+          <p className="mx-auto max-w-max truncate text-gray-300">
             {data?.artist ?? "Spotify"}
           </p>
         </div>

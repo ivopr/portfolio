@@ -16,13 +16,6 @@ html {
   @apply text-gray-100;
   @apply bg-primary-900;
   @apply pattern-crosses-primary-800/25;
-  @apply w-screen;
-  @apply overflow-x-hidden;
   font-family: 'Poppins', sans-serif;
   min-height: 100vh;
-  max-width: 100vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }

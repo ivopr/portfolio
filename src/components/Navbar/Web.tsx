@@ -1,13 +1,17 @@
 import { Popover } from "@headlessui/react";
 import { Menu } from "lucide-react";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import { FC } from "react";
 
 import { classNames } from "../../utils/classNames";
-import LanguageToggler from "../LanguageToggler";
 import { links } from "./data";
+
+const LanguageToggler = dynamic(() => import("../LanguageToggler"), {
+  suspense: true,
+});
 
 const WebNavbar: FC = () => {
   const location = useRouter();

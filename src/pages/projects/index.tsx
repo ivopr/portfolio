@@ -1,10 +1,14 @@
 import { GetStaticProps } from "next";
-import Link from "next/link";
+import dynamic from "next/dynamic";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { FC } from "react";
 
 import { projectsData } from "../../utils/projectsData";
+
+const ProjectCard = dynamic(() => import("../../components/ProjectCard"), {
+  suspense: true,
+});
 
 const Projects: FC = () => {
   const { t } = useTranslation(["projects"]);
@@ -17,14 +21,7 @@ const Projects: FC = () => {
 
       <div className="my-6 flex w-full flex-wrap gap-2">
         {projectsData.map((project) => (
-          <Link key={project.name} href={`/projects/${project.name}`}>
-            <a className="w-full rounded-lg bg-primary-800 px-4 py-5 shadow shadow-primary-600 transition-all hover:bg-primary-700 hover:shadow-primary-500 md:w-56 lg:w-72">
-              <h2 className="text-lg">{t(`projects:${project.name}.title`)}</h2>
-              <p className="w-full line-clamp-2">
-                {t(`projects:${project.name}.description`)}
-              </p>
-            </a>
-          </Link>
+          <ProjectCard key={project.name} name={project.name} />
         ))}
       </div>
     </div>

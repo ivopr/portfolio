@@ -6,11 +6,7 @@ type ButtonProps = {
   parentClassName?: string;
 };
 
-export const Button: FC<ButtonProps> = ({
-  children,
-  className,
-  parentClassName,
-}) => {
+const Button: FC<ButtonProps> = ({ children, className, parentClassName }) => {
   return (
     <button
       className={`group relative inline-block text-sm font-medium text-primary-500 focus:outline-none focus:ring active:text-primary-500 ${parentClassName}`}
@@ -25,3 +21,5 @@ export const Button: FC<ButtonProps> = ({
     </button>
   );
 };
+
+export default Button;

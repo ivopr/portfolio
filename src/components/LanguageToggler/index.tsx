@@ -1,5 +1,6 @@
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDown } from "lucide-react";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
@@ -7,7 +8,9 @@ import { FC, Fragment } from "react";
 import bra from "svg-country-flags/svg/br.svg";
 import usa from "svg-country-flags/svg/us.svg";
 
-import { Button } from "../Button";
+const Button = dynamic(() => import("../Button"), {
+  suspense: true,
+});
 
 type LanguageTogglerProps = {
   isMobile?: boolean;
