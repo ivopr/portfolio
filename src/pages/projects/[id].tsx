@@ -8,7 +8,7 @@ import {
 } from "next";
 import dynamic from "next/dynamic";
 import Head from "next/head";
-import { useTranslation } from "next-i18next";
+import { Trans, useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 import { projectsData } from "../../utils/projectsData";
@@ -17,9 +17,12 @@ const NotFound = dynamic(() => import("../404"), {
   suspense: true,
 });
 
-const AliceCarousel = dynamic(() => import("react-alice-carousel"), {
-  suspense: true,
-});
+const ProjectImagesCarousel = dynamic(
+  () => import("../../components/ProjectImagesCarousel"),
+  {
+    suspense: true,
+  }
+);
 
 const ProjectDetails: NextPage<
   InferGetStaticPropsType<typeof getStaticProps>
@@ -31,17 +34,6 @@ const ProjectDetails: NextPage<
   if (!project) {
     return <NotFound />;
   }
-
-  const carouselItems = project.images.map((image, idx) => (
-    <img
-      key={image + idx}
-      alt={project.name}
-      className="pointer-events-none h-80 w-fit select-none rounded-lg shadow shadow-primary-400"
-      data-value={idx}
-      role="presentation"
-      src={image}
-    />
-  ));
 
   return (
     <div className="mx-auto w-full md:w-4/5 lg:w-4/6">
@@ -61,25 +53,38 @@ const ProjectDetails: NextPage<
         {t(`projects:${name}.title`)}
       </h2>
 
-      <div className="my-6 h-80 select-none">
-        <AliceCarousel
-          controlsStrategy="responsive"
-          disableButtonsControls
-          disableDotsControls
-          items={carouselItems}
-          mouseTracking
-          responsive={{
-            0: {
-              items: 2,
-            },
-            640: {
-              items: 4,
-            },
-          }}
-        />
-      </div>
+      {project.images ? (
+        <div className="my-6 h-80 select-none">
+          <ProjectImagesCarousel images={project.images} />
+        </div>
+      ) : null}
 
-      <p className="prose text-justify">{t(`projects:${name}.description`)}</p>
+      <Trans
+        className={`${!project.images ? "mt-6" : ""} prose text-justify`}
+        components={{
+          LinkGit: project.linkGit ? (
+            <a
+              className="font-semibold text-primary-300 transition-all hover:text-primary-100"
+              href={project.linkGit}
+              target="_blank"
+              rel="noreferrer"
+            />
+          ) : (
+            <></>
+          ),
+          LinkSite: project.linkSite ? (
+            <a
+              className="font-semibold text-primary-300 transition-all hover:text-primary-100"
+              href={project.linkSite}
+              target="_blank"
+              rel="noreferrer"
+            />
+          ) : (
+            <></>
+          ),
+        }}
+        i18nKey={`projects:${name}.description`}
+      />
     </div>
   );
 };
@@ -90,6 +95,8 @@ export const getStaticPaths: GetStaticPaths = () => {
     paths: [
       { params: { id: "ictiobiometria" } },
       { params: { id: "ictiobiometria" }, locale: "pt-BR" },
+      { params: { id: "visualdynamics" } },
+      { params: { id: "visualdynamics" }, locale: "pt-BR" },
     ],
   };
 };

@@ -12,7 +12,7 @@ const ProjectCard: FC<ProjectCardProps> = ({ banner, name }) => {
 
   return (
     <Link href={`/projects/${name}`}>
-      <a className="group block rounded-xl bg-primary-800/20 hover:bg-primary-800/30">
+      <a className="group block rounded-xl bg-primary-800/20 transition-all hover:bg-primary-800/30">
         <img
           alt="Lava"
           src={banner}

@@ -1,4 +1,4 @@
-export const projectsData = [
+export const projectsData: Project[] = [
   {
     name: "ictiobiometria",
     banner: "/assets/ictiobiometria/banner.png",
@@ -10,5 +10,11 @@ export const projectsData = [
       "/assets/ictiobiometria/5.webp",
       "/assets/ictiobiometria/6.webp",
     ],
+  },
+  {
+    banner: "/assets/vd/banner.jpg",
+    name: "visualdynamics",
+    linkGit: "https://github.com/LABIOQUIM/visualdynamics",
+    linkSite: "https://visualdynamics.fiocruz.br",
   },
 ];

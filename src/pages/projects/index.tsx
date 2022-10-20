@@ -1,5 +1,6 @@
 import { GetStaticProps } from "next";
 import dynamic from "next/dynamic";
+import Head from "next/head";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { FC } from "react";
@@ -15,6 +16,9 @@ const Projects: FC = () => {
 
   return (
     <div className="mx-auto w-full md:w-4/5 lg:w-4/6">
+      <Head>
+        <title>{t("projects:title") + " - " + t("common:app-name")}</title>
+      </Head>
       <h2 className="text-center text-xl text-primary-300 md:text-2xl lg:text-3xl">
         {t("projects:title")}
       </h2>

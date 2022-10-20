@@ -4,5 +4,9 @@
     "description": "An mobile app to help measuring fish using Artificial Intelligence.\nIctiobiometria is a project in partnership with the Laboratory of Ichthyology and Fisheries of the Federal University of Rondônia, to assist in the process of measuring fish in the Madeira River basin, as one of the necessary procedures to identify patterns of reproductive migration and monitor the environmental impact caused. by anthropic actions in the basin.\nBefore the app, this process was manual, requiring the researcher to be present at the local fish market, with a measuring tape and a paper, on busy days many fish data could be lost due to the time required to manually measure and take note for each fish.\nNow, the researcher just take a picture with a fish and a pink colored ruler, the rest is calculated automatically by our Neural Network. And now, the general population can help by sending new fish images through the app. All data is stored on a server in the University and isn't shared with any third parties."
   },
   "project": "Project",
-  "title": "My Projects"
+  "title": "My Projects",
+  "visualdynamics": {
+    "title": "Visual Dynamics",
+    "description": "Visual Dynamics is a web application that makes molecular dynamics seem easy.\nIt generates all necessary commands and stores them in order, this list can be downloaded so the user can execute the dynamic on their own hardware or can be run on the application servers.\nVisual Dynamics goal is to facilitate and speed up the time needed to prepare a molecular dynamic, as not all researchers are command line experts, and providing a hardware to researchers that don't have a machine strong enough for it.\nIt is an open source project available on GitHub, under <LinkGit>LABIOQUIM/visualdynamics</LinkGit> and is live at <LinkSite>visualdynamics.fiocruz.br</LinkSite>"
+  }
 }
