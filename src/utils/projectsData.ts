@@ -1,6 +1,7 @@
 export const projectsData = [
   {
     name: "ictiobiometria",
+    banner: "/assets/ictiobiometria/banner.png",
     images: [
       "/assets/ictiobiometria/1.webp",
       "/assets/ictiobiometria/2.webp",

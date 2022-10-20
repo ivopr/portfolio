@@ -7,7 +7,11 @@ const nextConfig = {
   swcMinify: true,
   i18n,
   images: {
-    domains: ["play-lh.googleusercontent.com", "img.shields.io"],
+    domains: [
+      "play-lh.googleusercontent.com",
+      "img.shields.io",
+      "images.unsplash.com",
+    ],
   },
 };
 

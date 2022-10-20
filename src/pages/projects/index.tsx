@@ -19,9 +19,13 @@ const Projects: FC = () => {
         {t("projects:title")}
       </h2>
 
-      <div className="my-6 flex w-full flex-wrap gap-2">
+      <div className="my-6 grid w-full grid-cols-1 gap-2 md:grid-cols-2">
         {projectsData.map((project) => (
-          <ProjectCard key={project.name} name={project.name} />
+          <ProjectCard
+            key={project.name}
+            banner={project.banner}
+            name={project.name}
+          />
         ))}
       </div>
     </div>
