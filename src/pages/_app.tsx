@@ -25,7 +25,7 @@ function MyApp({ Component, pageProps }) {
           <NowPlaying />
         </div>
 
-        <main className="flex flex-1 px-5 md:px-10 lg:px-20">
+        <main className="flex flex-1 p-5 md:p-10 lg:p-20">
           <Component {...pageProps} />
         </main>
       </Suspense>
