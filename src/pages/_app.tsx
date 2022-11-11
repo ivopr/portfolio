@@ -1,5 +1,6 @@
 import "../styles/globals.css";
 
+import { Analytics } from "@vercel/analytics/react";
 import dynamic from "next/dynamic";
 import { appWithTranslation } from "next-i18next";
 import { Suspense } from "react";
@@ -26,6 +27,7 @@ function MyApp({ Component, pageProps }) {
           <Component {...pageProps} />
         </main>
       </Suspense>
+      <Analytics />
     </div>
   );
 }

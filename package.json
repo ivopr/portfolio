@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.3",
+    "@vercel/analytics": "^0.1.4",
     "lucide-react": "^0.91.0",
     "motion": "^10.14.2",
     "next": "13.0.1",
