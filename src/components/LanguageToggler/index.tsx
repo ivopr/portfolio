@@ -40,9 +40,11 @@ const LanguageToggler: FC<LanguageTogglerProps> = ({ isMobile }) => {
           className="relative flex w-full items-center gap-2 px-4"
           parentClassName="w-full"
         >
-          <span className="relative h-5 w-5">
-            <Image src={i18n.language === "en-US" ? usa : bra} layout="fill" />
-          </span>
+          <Image
+            alt="Active Language Flag"
+            src={i18n.language === "en-US" ? usa : bra}
+            className="relative h-5 w-5"
+          />
           {isMobile
             ? i18n.language === "en-US"
               ? "English"
@@ -68,9 +70,7 @@ const LanguageToggler: FC<LanguageTogglerProps> = ({ isMobile }) => {
                 className="flex w-full gap-2 py-2 px-4 hover:bg-primary-800 hover:text-primary-200"
                 onClick={changeToEN}
               >
-                <span className="relative h-5 w-5">
-                  <Image src={usa} layout="fill" />
-                </span>
+                <Image alt="USA" src={usa} className="relative h-5 w-5" />
                 English
               </button>
             )}
@@ -81,9 +81,7 @@ const LanguageToggler: FC<LanguageTogglerProps> = ({ isMobile }) => {
                 className="flex w-full gap-2 py-2 px-4 hover:bg-primary-800 hover:text-primary-200"
                 onClick={changeToPTBR}
               >
-                <span className="relative h-5 w-5">
-                  <Image src={bra} layout="fill" />
-                </span>
+                <Image alt="Brazil" src={bra} className="relative h-5 w-5" />
                 Português (BR)
               </button>
             )}

@@ -1,4 +1,4 @@
-import { File, User } from "lucide-react";
+import { File, Github, User } from "lucide-react";
 
 export const links = [
   {
@@ -10,6 +10,13 @@ export const links = [
     name: "projects",
     href: "/projects",
     Icon: File,
+  },
+  {
+    name: "github",
+    href: "https://github.com/ivopr/portfolio",
+    Icon: Github,
+    target: "_blank",
+    rel: "noopener noreferrer",
   },
   // {
   //   name: "posts",

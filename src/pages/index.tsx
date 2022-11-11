@@ -26,8 +26,8 @@ const Home: FC = () => {
         <title>{t("navigation:about-me") + " - " + t("common:app-name")}</title>
       </Head>
       {/* Introduction */}
-      <section className="flex flex-col items-center gap-6 md:flex-row">
-        <div className="m-auto h-52 w-52 overflow-hidden rounded-full shadow-md shadow-primary-500">
+      <section className="flex flex-col gap-6 md:flex-row">
+        <div className="mx-auto h-52 w-52 overflow-hidden rounded-full shadow-md shadow-primary-500">
           <Image className="pointer-events-none" src={me} alt="Ivo Vieira" />
         </div>
         <div className="flex flex-1 flex-col">

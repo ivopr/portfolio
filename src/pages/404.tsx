@@ -25,9 +25,7 @@ const NotFound: FC = () => {
         href="/"
         className="group relative mt-5 inline-block text-sm font-medium text-primary-500 focus:outline-none focus:ring active:text-primary-500"
       >
-        <a>
-          <Button>{t("common:404.go-home")}</Button>
-        </a>
+        <Button>{t("common:404.go-home")}</Button>
       </Link>
     </main>
   );

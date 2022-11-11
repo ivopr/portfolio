@@ -6,12 +6,9 @@ import { Suspense } from "react";
 
 import nextI18nConfig from "../../next-i18next.config";
 import { Loading } from "../components/Loading";
+import Navbar from "../components/Navbar";
 
 const NowPlaying = dynamic(() => import("../components/NowPlaying"), {
-  suspense: true,
-});
-
-const Navbar = dynamic(() => import("../components/Navbar"), {
   suspense: true,
 });
 

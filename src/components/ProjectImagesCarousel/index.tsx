@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { FC } from "react";
 import AliceCarousel from "react-alice-carousel";
 
@@ -7,13 +8,15 @@ type ProjectImagesCarouselProps = {
 
 const ProjectImagesCarousel: FC<ProjectImagesCarouselProps> = ({ images }) => {
   const carouselItems = images.map((image, idx) => (
-    <img
+    <Image
       key={image + idx}
-      alt="img"
+      alt="Project Image"
       className="pointer-events-none h-80 w-fit select-none rounded-lg shadow shadow-primary-400"
       data-value={idx}
       role="presentation"
       src={image}
+      width={1240}
+      height={320}
     />
   ));
 

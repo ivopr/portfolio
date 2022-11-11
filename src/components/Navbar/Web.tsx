@@ -6,7 +6,6 @@ import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import { FC } from "react";
 
-import { classNames } from "../../utils/classNames";
 import { links } from "./data";
 
 const LanguageToggler = dynamic(() => import("../LanguageToggler"), {
@@ -21,10 +20,11 @@ const WebNavbar: FC = () => {
     <div className="flex h-16 items-center px-6 shadow-md md:px-12">
       <div className="flex flex-1 items-center justify-between py-2 md:space-x-10">
         <div className="flex justify-start lg:flex-1">
-          <Link href="/">
-            <a className="text-xl font-semibold text-primary-100 subpixel-antialiased">
-              {t("common:app-name")}
-            </a>
+          <Link
+            className="text-xl font-semibold text-primary-100 subpixel-antialiased"
+            href="/"
+          >
+            {t("common:app-name")}
           </Link>
         </div>
         <div className="md:hidden">
@@ -34,19 +34,19 @@ const WebNavbar: FC = () => {
           </Popover.Button>
         </div>
         <nav className="hidden space-x-10 md:flex">
-          {links.map((link) => (
-            <Link href={link.href} key={link.href}>
-              <a
-                className={classNames(
-                  location.pathname === link.href
-                    ? "text-primary-50 hover:text-primary-100"
-                    : "text-primary-200 hover:text-primary-100",
-                  "prose font-medium flex gap-2 items-center"
-                )}
-              >
-                <link.Icon className="h-5 w-5" />
-                {t(`navigation:${link.name}`)}
-              </a>
+          {links.map(({ Icon, ...rest }) => (
+            <Link
+              className={`${
+                location.pathname === rest.href
+                  ? "text-primary-50 hover:text-primary-100"
+                  : "text-primary-200 hover:text-primary-100"
+              } 
+                prose flex items-center gap-2 font-medium`}
+              key={rest.href}
+              {...rest}
+            >
+              <Icon className="h-5 w-5" />
+              {t(`navigation:${rest.name}`)}
             </Link>
           ))}
           <LanguageToggler />

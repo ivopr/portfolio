@@ -6,7 +6,6 @@ import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import { FC } from "react";
 
-import { classNames } from "../../utils/classNames";
 import { links } from "./data";
 
 const LanguageToggler = dynamic(() => import("../LanguageToggler"), {
@@ -37,23 +36,18 @@ const MobileNavbar: FC = () => {
           <LanguageToggler isMobile />
         </div>
         <nav className="grid gap-y-8">
-          {links.map((link) => (
-            <Popover.Button
-              key={link.href}
-              as={Link}
-              legacyBehavior={false}
-              href={link.href}
-            >
+          {links.map(({ Icon, ...rest }) => (
+            <Popover.Button key={rest.href} as={Link} {...rest}>
               <span
-                className={classNames(
-                  location.pathname === link.href
+                className={`${
+                  location.pathname === rest.href
                     ? "text-primary-50 hover:text-primary-100"
-                    : "text-primary-200 hover:text-primary-100",
-                  "prose font-medium flex gap-2"
-                )}
+                    : "text-primary-200 hover:text-primary-100"
+                }
+                  prose flex gap-2 font-medium`}
               >
-                <link.Icon className="h-5 w-5" />
-                {t(`navigation:${link.name}`)}
+                <Icon className="h-5 w-5" />
+                {t(`navigation:${rest.name}`)}
               </span>
             </Popover.Button>
           ))}
