@@ -1,17 +1,15 @@
 import { ExternalLink } from "lucide-react";
 import { GetStaticProps } from "next";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import Image from "next/image";
-import { useTranslation } from "next-i18next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { FC } from "react";
+import "react-alice-carousel/lib/alice-carousel.css";
 
 import me from "../assets/me.jpeg";
-
-const Badges = dynamic(() => import("../components/Badges"), {
-  suspense: true,
-});
+import Badges from "../components/Badges";
 
 const Button = dynamic(() => import("../components/Button"), {
   suspense: true,
@@ -21,7 +19,7 @@ const Home: FC = () => {
   const { t } = useTranslation(["common", "home", "navigation"]);
 
   return (
-    <main className="mx-auto md:w-4/5 lg:w-4/6">
+    <main className="mx-auto w-full md:w-4/5 lg:w-4/6">
       <Head>
         <title>{t("navigation:about-me") + " - " + t("common:app-name")}</title>
       </Head>
@@ -37,7 +35,6 @@ const Home: FC = () => {
           <span className="prose text-justify text-base font-medium">
             {t("home:about.description")}
           </span>
-          <Badges />
           <h5 className="mt-5 text-sm">{t("home:cv.title")}</h5>
           <div className="mt-2 flex flex-wrap gap-2">
             <a href="http://lattes.cnpq.br/5130583751808996">
@@ -48,6 +45,19 @@ const Home: FC = () => {
             </a>
           </div>
         </div>
+      </section>
+
+      <section className="mt-4">
+        <Badges />
+      </section>
+
+      <section className="mt-4 flex flex-col gap-3">
+        <h2 className="mt-2.5 text-center text-3xl text-primary-200 md:mt-0 md:text-left">
+          {t("home:about.long-description.title")}
+        </h2>
+        <p className="prose text-justify text-base font-medium">
+          {t("home:about.long-description.text")}
+        </p>
       </section>
     </main>
   );

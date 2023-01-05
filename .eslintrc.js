@@ -25,7 +25,7 @@ module.exports = {
     "plugin:prettier/recommended", // Prettier plugin
     "plugin:tailwindcss/recommended", // Tailwindcss plugin
   ],
-  plugins: ["simple-import-sort", "tailwindcss"],
+  plugins: ["tailwindcss"],
   rules: {
     // We will use TypeScript's types for component props instead
     "react/prop-types": "off",
@@ -60,9 +60,5 @@ module.exports = {
       "warn",
       { props: "never", children: "never" },
     ],
-
-    // Import Sort
-    "simple-import-sort/imports": "warn",
-    "simple-import-sort/exports": "warn",
   },
 };

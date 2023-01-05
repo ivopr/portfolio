@@ -1,14 +1,7 @@
 import { Popover, Transition } from "@headlessui/react";
-import dynamic from "next/dynamic";
 import { FC, Fragment } from "react";
-
-const WebNavbar = dynamic(() => import("./Web"), {
-  suspense: true,
-});
-
-const MobileNavbar = dynamic(() => import("./Mobile"), {
-  suspense: true,
-});
+import MobileNavbar from "./Mobile";
+import WebNavbar from "./Web";
 
 const Navbar: FC = () => {
   return (

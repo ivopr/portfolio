@@ -1,7 +1,35 @@
 {
   "about": {
-    "description": "Estudante de Ciência da Computação na Fundação Universidade Federal de Rondônia (UNIR).\nConstruindo ferramentas web for para pesquisas em bioinformática.\nReact Native fanboy.",
-    "using": "O que eu uso e tenho familiaridade:"
+    "description": "Estudante de Ciência da Computação na Fundação Universidade Federal de Rondônia (UNIR).\nConstruindo ferramentas web para pesquisas em bioinformática.\nReact Native fanboy.\n",
+    "long-description": {
+      "title": "Um pouco mais sobre mim",
+      "text": "Olá, meu nome é Ivo Vieira, mas você já deve ter lido isso quando entrou nessa página, atualmente sou bolsista do Programa de Excelência em Pesquisa (PROEP) da Fiocruz, onde atuo no desenvolvimento de um software web para execução de dinâmica molecular chamado Visual Dynamics, sou estudante do curso de Ciência da Computação na Fundação Universidade Federal de Rondônia (UNIR) com previsão de término para 2024.1.\nDesenvolvi junto de colegas e professores um aplicativo para smartphone para medição automática de peixes e atualmente o tempo livre tenho dedicado a alguns projetos pessoais.\nTenho grande interesse e paixão pelo ecossistema React (esse site e o aplicativo mencionado anteriormente são grandes exemplos disso), busco cada dia mais aprofundar meus conhecimentos nessa tecnologia, além de desbravar eventualmente frameworks, ferramentas e linguagens que venham a chamar minha atenção de alguma forma."
+    },
+    "using": "Tech Stack"
+  },
+  "techstack": {
+    "alt": {
+      "0": "Ícone Arch Linux",
+      "1": "Ícone CSS",
+      "2": "Ícone HTML",
+      "3": "Ícone JavaScript",
+      "4": "Ícone PHP",
+      "5": "Ícone Python",
+      "6": "Ícone React",
+      "7": "Ícone React Native",
+      "8": "Ícone Typescript"
+    },
+    "description": {
+      "0": "Sem dúvida alguma a melhor distro Linux (na minha opinião, é claro), simples e fácil, uma alta variedade de pacotes oficiais e portados por usuários.",
+      "1": "Não somos melhores amigos.\n\nMas também não nos odiamos...",
+      "2": "Se você ver o código fonte dessa página vai perceber que ainda não sou dos melhores com esse cara...",
+      "3": "Bem...\n\nSem palavras aqui...\n\nEu só uso isso...",
+      "4": "Esse aqui foi o responsável por me trazer pra esse mundo. Se quiserem culpar alguém, culpem ele.",
+      "5": "Sou mais chegado nesse cara aqui do que no CSS. Porém não posso dizer que somos amigos ainda, mas que resolve uns problemas não tenho como negar.",
+      "6": "Esse aqui é bom de falar sobre.\nLiteralmente tudo nessa página foi feito com ele.",
+      "7": "E aqui temos o responsável por me levar para os smartphones. Viva o cross-platform.",
+      "8": "Eu até falaria sobre esse cara, porém ele não é do tipo que gosta disso. "
+    }
   },
   "cv": {
     "lattes": "Lattes",

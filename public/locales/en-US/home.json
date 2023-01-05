@@ -1,7 +1,35 @@
 {
   "about": {
     "description": "Computer Science student at Fundação Universidade Federal de Rondônia (UNIR).\nBuilding web tools for bioinformatics researches.\nReact Native fanboy.",
-    "using": "What I'm using or am familiar with:"
+    "using": "Tech Stack",
+    "long-description": {
+      "title": "A little more about me",
+      "text": "Hello, my name is Ivo Vieira, but you must have already read this when you entered this page, I am currently a scholarship holder of the Research Excellence Program (PROEP) at Fiocruz, where I work in the development of a web software for performing molecular dynamics called Visual Dynamics, I am a student of the Computer Science course at the Federal University of Rondônia Foundation (UNIR) with completion forecast for 2024.1.\nI have developed with colleagues and professors a smartphone application for automatic measurement of fish and currently the free time I have dedicated to some personal projects.\nI have great interest and passion for the React ecosystem (this website and the application mentioned above are great examples of this), I seek to deepen my knowledge in this technology every day, in addition to eventually pioneering frameworks, tools and languages that come to call my attention somehow."
+    }
+  },
+  "techstack": {
+    "alt": {
+      "0": "Icon Arch Linux",
+      "1": "Icon CSS",
+      "2": "Icon HTML",
+      "3": "Icon JavaScript",
+      "4": "Icon PHP",
+      "5": "Icon Python",
+      "6": "Icon React",
+      "7": "Icon React Native",
+      "8": "Icon Typescript"
+    },
+    "description": {
+      "0": "Undoubtedly the best Linux distro (in my opinion, of course), simple and easy, a high variety of official and user-ported packages.",
+      "1": "We're not best friends.\n\nBut we don't hate each other either...",
+      "2": "If you look at the source code of this page, you'll realize that I'm still not the best with this guy...",
+      "3": "Well...\n\nNo words here...\n\nI just use this...",
+      "4": "This one was responsible for bringing me into this world. If you want to blame someone, blame him.",
+      "5": "I'm closer to this guy here than I am to CSS. But I can't say that we're friends yet, but that solves some problems I can't deny it.",
+      "6": "This one is good to talk about.\nLiterally everything on this page was made with it.",
+      "7": "And here we have the one responsible for taking me to smartphones. Long live cross-platform.",
+      "8": "I would even talk about this guy, but he's not the type to like that."
+    }
   },
   "cv": {
     "lattes": "Lattes",
