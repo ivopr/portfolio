@@ -1,32 +1,21 @@
-import "react-alice-carousel/lib/alice-carousel.css";
-
+import { FC } from "react";
 import {
   GetStaticPaths,
   GetStaticProps,
   InferGetStaticPropsType,
-  NextPage,
+  NextPage
 } from "next";
-import dynamic from "next/dynamic";
 import Head from "next/head";
 import { Trans, useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
+import ProjectImagesCarousel from "../../components/ProjectImagesCarousel";
 import { projectsData } from "../../utils/projectsData";
+import NotFound from "../404";
 
-const NotFound = dynamic(() => import("../404"), {
-  suspense: true,
-});
+import "react-alice-carousel/lib/alice-carousel.css";
 
-const ProjectImagesCarousel = dynamic(
-  () => import("../../components/ProjectImagesCarousel"),
-  {
-    suspense: true,
-  }
-);
-
-const ProjectDetails: NextPage<
-  InferGetStaticPropsType<typeof getStaticProps>
-> = ({ name }) => {
+const ProjectDetails: FC<{ name: string }> = ({ name }) => {
   const { t } = useTranslation(["projects", "common"]);
 
   const project = projectsData.find((p) => p.name === name);
@@ -81,7 +70,7 @@ const ProjectDetails: NextPage<
             />
           ) : (
             <></>
-          ),
+          )
         }}
         i18nKey={`projects:${name}.description`}
       />
@@ -96,8 +85,8 @@ export const getStaticPaths: GetStaticPaths = () => {
       { params: { id: "ictiobiometria" } },
       { params: { id: "ictiobiometria" }, locale: "pt-BR" },
       { params: { id: "visualdynamics" } },
-      { params: { id: "visualdynamics" }, locale: "pt-BR" },
-    ],
+      { params: { id: "visualdynamics" }, locale: "pt-BR" }
+    ]
   };
 };
 
@@ -108,9 +97,9 @@ export const getStaticProps: GetStaticProps = async ({ locale, params }) => {
       ...(await serverSideTranslations(locale, [
         "common",
         "projects",
-        "navigation",
-      ])),
-    },
+        "navigation"
+      ]))
+    }
   };
 };
 

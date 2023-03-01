@@ -1,4 +1,8 @@
 {
+  "all-projects": {
+    "title": "Todos os meus projetos",
+    "description": "Eu fiz mais do que está sendo mostrado aqui, clique e descubra mais..."
+  },
   "ictiobiometria": {
     "title": "Ictiobiometria",
     "description": "Um aplicativo móvel para auxiliar na medição de peixes usando Inteligência Artificial.\nIctiobiometria é um projeto em parceria com o Laboratório de Ictiologia e Pesca da Universidade Federal de Rondônia, para auxiliar no processo de medição de peixes na bacia do rio Madeira, como um dos procedimentos necessários para identificar padrões de migração reprodutiva e monitorar o impacto ambiental causado. por ações antrópicas na bacia.\nAntes do aplicativo, esse processo era manual, exigindo que o pesquisador estivesse presente na peixaria local, com uma fita métrica e um papel, em dias de maior movimento muitos dados de peixes podiam ser perdidos devido ao tempo é necessário medir manualmente e anotar cada peixe.\nAgora, basta o pesquisador tirar uma foto com um peixe e uma régua na cor rosa, o restante é calculado automaticamente pela nossa Rede Neural. E agora, a população em geral pode ajudar enviando novas imagens de peixes pelo app. Todos os dados são armazenados em um servidor na Universidade e não são compartilhados com terceiros."
@@ -8,5 +12,9 @@
   "visualdynamics": {
     "title": "Visual Dynamics",
     "description": "Visual Dynamics é uma aplicação web que faz dinâmica molecular parecer fácil.\nA aplicação gera uma lista de todos os comandos necessários para a execução da dinâmica, essa lista de comandos pode ser baixada para que o pesquisador execute a dinâmica em sua própria máquina ou pode ser executada no servidor da aplicação.\nO objetivo do Visual Dynamics é agilizar e facilitar o processo de preparação e execução de uma dinâmica molecular, uma vez que nem todos aqueles que venham a se interessar por bioinformática serão mestres da linha de comando.\nÉ um projeto de código aberto disponibilizado no GitHub, em <LinkGit>LABIOQUIM/visualdynamics</LinkGit> e está disponível em tempo real em <LinkSite>visualdynamics.fiocruz.br</LinkSite>"
+  },
+  "prism": {
+    "title": "Prism",
+    "description": "Prism é um aplicativo para gerenciamento pessoal que está em fase de desenvolvimento e pode ser acessado <LinkSite>aqui</LinkSite>"
   }
 }

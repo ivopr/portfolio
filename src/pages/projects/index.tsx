@@ -1,14 +1,14 @@
+import { FC } from "react";
 import { GetStaticProps } from "next";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { FC } from "react";
 
 import { projectsData } from "../../utils/projectsData";
 
 const ProjectCard = dynamic(() => import("../../components/ProjectCard"), {
-  suspense: true,
+  suspense: true
 });
 
 const Projects: FC = () => {
@@ -42,9 +42,9 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
       ...(await serverSideTranslations(locale, [
         "common",
         "projects",
-        "navigation",
-      ])),
-    },
+        "navigation"
+      ]))
+    }
   };
 };
 

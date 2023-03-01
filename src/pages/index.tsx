@@ -1,19 +1,15 @@
+import { FC } from "react";
 import { ExternalLink } from "lucide-react";
 import { GetStaticProps } from "next";
-import { useTranslation } from "next-i18next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import dynamic from "next/dynamic";
 import Head from "next/head";
 import Image from "next/image";
-import { FC } from "react";
-import "react-alice-carousel/lib/alice-carousel.css";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 import me from "../assets/me.jpeg";
-import Badges from "../components/Badges";
+import Button from "../components/Button";
 
-const Button = dynamic(() => import("../components/Button"), {
-  suspense: true,
-});
+import "react-alice-carousel/lib/alice-carousel.css";
 
 const Home: FC = () => {
   const { t } = useTranslation(["common", "home", "navigation"]);
@@ -26,7 +22,11 @@ const Home: FC = () => {
       {/* Introduction */}
       <section className="flex flex-col gap-6 md:flex-row">
         <div className="mx-auto h-52 w-52 overflow-hidden rounded-full shadow-md shadow-primary-500">
-          <Image className="pointer-events-none" src={me} alt="Ivo Vieira" />
+          <Image
+            className="pointer-events-none"
+            src={me}
+            alt="Ivo Vieira"
+          />
         </div>
         <div className="flex flex-1 flex-col">
           <h2 className="mt-2.5 text-center text-3xl text-primary-200 md:mt-0 md:text-left">
@@ -46,7 +46,7 @@ const Home: FC = () => {
           </div>
         </div>
       </section>
-
+      {/* 
       <section className="mt-4">
         <Badges />
       </section>
@@ -58,7 +58,7 @@ const Home: FC = () => {
         <p className="prose text-justify text-base font-medium">
           {t("home:about.long-description.text")}
         </p>
-      </section>
+      </section> */}
     </main>
   );
 };
@@ -70,8 +70,9 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
         "common",
         "home",
         "navigation",
-      ])),
-    },
+        "projects"
+      ]))
+    }
   };
 };
 
