@@ -4,5 +4,11 @@
   "404": {
     "title": "Page Not Found",
     "go-home": "Go Home"
+  },
+  "og": {
+    "home": {
+      "title": "A Nice Portfolio: Ivo's place on the internet.",
+      "description": "Welcome to this hidden place, you should be desperate to share something like this, huh?"
+    }
   }
 }

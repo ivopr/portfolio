@@ -4,5 +4,11 @@
   "404": {
     "title": "Página Não Encontrada",
     "go-home": "Ir para o início"
+  },
+  "og": {
+    "home": {
+      "title": "Um Portfolio Bacana: O meu pedaço na internet.",
+      "description": "Bem-vindo a este lugar escondido, você deve estar desesperado para compartilhar algo assim, hein?"
+    }
   }
 }

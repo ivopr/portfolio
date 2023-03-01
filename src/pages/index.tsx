@@ -6,18 +6,42 @@ import Image from "next/image";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
-import me from "../assets/me.jpeg";
+import me from "../../public/me.jpeg";
 import Button from "../components/Button";
 
 import "react-alice-carousel/lib/alice-carousel.css";
 
 const Home: FC = () => {
-  const { t } = useTranslation(["common", "home", "navigation"]);
+  const { t, i18n } = useTranslation(["common", "home", "navigation"]);
 
   return (
     <main className="mx-auto w-full md:w-4/5 lg:w-4/6">
       <Head>
         <title>{t("navigation:about-me") + " - " + t("common:app-name")}</title>
+        <meta
+          property="og:title"
+          content={t("common:og.home.title")}
+        />
+        <meta
+          property="og:url"
+          content="https://ivo.vist.gg/"
+        />
+        <meta
+          property="og:image"
+          content="https://ivo.vist.gg/me.jpeg"
+        />
+        <meta
+          property="og:type"
+          content="website"
+        />
+        <meta
+          property="og:description"
+          content={t("common:og.home.description")}
+        />
+        <meta
+          property="og:locale"
+          content={i18n.language}
+        />
       </Head>
       {/* Introduction */}
       <section className="flex flex-col gap-6 md:flex-row">
