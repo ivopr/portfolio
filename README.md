@@ -1,5 +1,7 @@
 # Ivo's Portfolio
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/5e61519e-e95f-42f0-975f-ae258e156d0c/deploy-status)](https://app.netlify.com/sites/ivos-portfolio/deploys)
+
 Hey there, I'm Ivo and this is the source code to my portfolio on [ivo.vist.gg](https://ivo.vist.gg/).
 
 ![Example Image](./.github/assets/example.png)
