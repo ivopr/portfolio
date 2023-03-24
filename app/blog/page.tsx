@@ -10,7 +10,9 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <section className="container mx-auto pb-8 text-left">
-      <BlogsGrid allPosts={allPosts} />
+      <BlogsGrid
+        allPosts={allPosts.filter((post) => post.status === "published")}
+      />
     </section>
   )
 }

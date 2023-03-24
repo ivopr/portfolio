@@ -10,15 +10,18 @@ export default function BlogsGrid({ allPosts }: { allPosts: PostProps[] }) {
         Blog
       </h2>
       <div className="mx-auto mt-8 grid max-w-4xl grid-cols-1 gap-10 sm:grid-cols-2">
-        {allPosts.map((p: PostProps) => (
-          // <BlogCard key={i} />
-          <BlogCard
-            key={p._id}
-            title={p.title}
-            slug={p.slug}
-            // imageSrc={mountyImage}
-          />
-        ))}
+        {allPosts.length > 0 ? (
+          allPosts.map((p: PostProps) => (
+            <BlogCard
+              key={p._id}
+              title={p.title}
+              slug={p.slug}
+              // imageSrc={mountyImage}
+            />
+          ))
+        ) : (
+          <p>Sem Publicações</p>
+        )}
       </div>
     </div>
   )
