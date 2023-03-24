@@ -19,7 +19,7 @@ export function ProjectCard({
 }: ProjectProps) {
   return (
     <div className="group">
-      <Link href={`/projects/${slug}`}>
+      <Link href="/projects/[slug]" as={`/projects/${slug}`}>
         <div className="rounded border-2 border-transparent transition-all duration-100 ease-linear">
           <div className="h-[150px]">
             {image ? (

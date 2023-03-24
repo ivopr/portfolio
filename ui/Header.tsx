@@ -61,6 +61,7 @@ export default function Header({ items, children }: MainNavProps) {
               </span>
             </button>
           </div>
+
           <nav className="hidden gap-6 md:flex">
             {items.map((item: NavItem, index: number) => (
               <Link
