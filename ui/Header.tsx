@@ -65,8 +65,6 @@ export default function Header({ items, children }: MainNavProps) {
             {items.map((item: NavItem, index: number) => (
               <Link
                 key={index}
-                target={item.isExternal ? "_blank" : undefined}
-                rel={item.isExternal ? "noreferrer" : undefined}
                 href={item.disabled ? "#" : item.href}
                 className={cn(
                   "flex items-center font-inter text-sm font-medium text-[#888] transition-all duration-75 ease-linear hover:text-zinc-50",
@@ -79,7 +77,7 @@ export default function Header({ items, children }: MainNavProps) {
             ))}
           </nav>
           <Link
-            href="https://github.com/lucky-chap/kaminari"
+            href="https://github.com/ivopr"
             target="_blank"
             rel="noreferrer"
             className="group rounded bg-gray-1000 p-2 transition-colors duration-100 ease-linear hover:bg-gray-1001"
