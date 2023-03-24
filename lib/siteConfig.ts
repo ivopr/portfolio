@@ -5,7 +5,7 @@ const siteConfig = {
   short_desc: "NextJS TailwindCSS Starter Template",
   description:
     "Power packed, no nonsense, production-ready Next.js starter template to get you up to speed in your next project.",
-  locale: "en",
-}
+  locale: "en"
+};
 
-export default siteConfig
+export default siteConfig;

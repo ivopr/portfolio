@@ -1,7 +1,7 @@
 /* eslint-disable no-underscore-dangle */
-import { PostProps } from "types"
+import { PostProps } from "types";
 
-import BlogCard from "./BlogCard"
+import BlogCard from "./BlogCard";
 
 export default function BlogsGrid({ allPosts }: { allPosts: PostProps[] }) {
   return (
@@ -24,5 +24,5 @@ export default function BlogsGrid({ allPosts }: { allPosts: PostProps[] }) {
         )}
       </div>
     </div>
-  )
+  );
 }

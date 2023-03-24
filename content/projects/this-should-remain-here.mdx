@@ -24,28 +24,28 @@ Still here? Ok let's moooooveeeeee!
 Here is an example of a code block
 
 ```tsx showLineNumbers title="pages/blog/[slug].tsx" {5,12,20}
-import { allPosts, type Post } from "contentlayer/generated"
-import { type GetStaticProps, type InferGetStaticPropsType } from "next"
+import { allPosts, type Post } from "contentlayer/generated";
+import { type GetStaticProps, type InferGetStaticPropsType } from "next";
 
 export const getStaticPaths = () => ({
   paths: allPosts.map((post) => ({ params: { slug: post.slug } })),
-  fallback: false,
-})
+  fallback: false
+});
 
 export const getStaticProps: GetStaticProps<{
-  post: Post
+  post: Post;
 }> = ({ params }) => ({
-  props: { post: allPosts.find((post) => post.slug === params?.slug) },
-})
+  props: { post: allPosts.find((post) => post.slug === params?.slug) }
+});
 
 export default function SinglePostPage(
-  props: InferGetStaticPropsType<typeof getStaticProps>,
+  props: InferGetStaticPropsType<typeof getStaticProps>
 ) {
   return (
     <div>
       <h1>{props.post.title}</h1>
     </div>
-  )
+  );
 }
 ```
 
@@ -62,7 +62,7 @@ Here is how it works:
 Some inline code
 
 ```js showLineNumbers
-const multiply = (a, b) => a * b
+const multiply = (a, b) => a * b;
 ```
 
 A very long useless HTML code
