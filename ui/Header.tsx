@@ -68,7 +68,7 @@ export default function Header({ items, children }: MainNavProps) {
                 href={item.href}
                 className={cn(
                   "flex items-center font-inter text-sm font-medium text-[#888] transition-all duration-75 ease-linear hover:text-zinc-50",
-                  item.href.startsWith(`/${segment}`) && "text-white",
+                  // item.href.startsWith(`/${segment}`) && "text-white",
                   item.disabled && "cursor-not-allowed opacity-80",
                 )}
               >
