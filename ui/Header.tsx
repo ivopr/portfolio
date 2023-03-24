@@ -1,6 +1,9 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react/jsx-pascal-case */
 /* eslint-disable no-unused-expressions */
+
+"use client"
+
 import { cn } from "@/lib/utils"
 import { Icons } from "@/ui/components/icons"
 import { MobileNav } from "@/ui/components/mobile-nav"
