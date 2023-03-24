@@ -65,7 +65,7 @@ export default function Header({ items, children }: MainNavProps) {
             {items.map((item: NavItem, index: number) => (
               <Link
                 key={index}
-                target={item.isExternal ? "_blank" : "_self"}
+                target={item.isExternal ? "_blank" : undefined}
                 rel={item.isExternal ? "noreferrer" : undefined}
                 href={item.disabled ? "#" : item.href}
                 className={cn(
