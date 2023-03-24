@@ -1,10 +1,6 @@
-/* eslint-disable react/jsx-pascal-case */
-/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/no-array-index-key */
+/* eslint-disable react/jsx-pascal-case */
 /* eslint-disable no-unused-expressions */
-
-"use client"
-
 import { cn } from "@/lib/utils"
 import { Icons } from "@/ui/components/icons"
 import { MobileNav } from "@/ui/components/mobile-nav"
@@ -66,7 +62,7 @@ export default function Header({ items, children }: MainNavProps) {
             {items.map((item: NavItem, index: number) => (
               <Link
                 key={index}
-                href={item.disabled ? "#" : item.href}
+                href={item.href}
                 className={cn(
                   "flex items-center font-inter text-sm font-medium text-[#888] transition-all duration-75 ease-linear hover:text-zinc-50",
                   item.href.startsWith(`/${segment}`) && "text-white",
