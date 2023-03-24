@@ -1,12 +1,13 @@
-/* eslint-disable react/no-array-index-key */
 /* eslint-disable react/jsx-pascal-case */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable no-unused-expressions */
 
 "use client"
 
 import { cn } from "@/lib/utils"
 import { Icons } from "@/ui/components/icons"
-import { MobileNav } from "@/ui/components/mobile-nav"
+import { MobileNav } from "@/ui/components/MobileNav"
 import Link from "next/link"
 import { useSelectedLayoutSegment } from "next/navigation"
 import React, { useEffect, useState } from "react"
@@ -35,7 +36,7 @@ export default function Header({ items, children }: MainNavProps) {
 
   return (
     <header
-      className={`fixed top-0 z-40 w-full border-b border-zinc-900 ${
+      className={`fixed top-0 h-12 z-40 w-full border-b border-zinc-900 ${
         !top && "bg-transparent shadow-lg backdrop-blur-sm"
       }`}
     >
@@ -60,15 +61,16 @@ export default function Header({ items, children }: MainNavProps) {
               </span>
             </button>
           </div>
-
           <nav className="hidden gap-6 md:flex">
             {items.map((item: NavItem, index: number) => (
               <Link
                 key={index}
-                href={item.href}
+                target={item.isExternal ? "_blank" : undefined}
+                rel={item.isExternal ? "noreferrer" : undefined}
+                href={item.disabled ? "#" : item.href}
                 className={cn(
                   "flex items-center font-inter text-sm font-medium text-[#888] transition-all duration-75 ease-linear hover:text-zinc-50",
-                  // item.href.startsWith(`/${segment}`) && "text-white",
+                  item.href.startsWith(`/${segment}`) && "text-white",
                   item.disabled && "cursor-not-allowed opacity-80",
                 )}
               >
@@ -85,7 +87,11 @@ export default function Header({ items, children }: MainNavProps) {
             <FiGithub className="text-gray-one transition-colors duration-100 ease-linear group-hover:text-gray-100" />
           </Link>
         </div>
-        {showMobileMenu && <MobileNav items={items}>{children}</MobileNav>}
+        {showMobileMenu && (
+          <MobileNav segment={segment} items={items}>
+            {children}
+          </MobileNav>
+        )}
       </div>
     </header>
   )
