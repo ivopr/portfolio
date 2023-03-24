@@ -36,7 +36,7 @@ export default function Header({ items, children }: MainNavProps) {
 
   return (
     <header
-      className={`fixed w-full top-0 z-40 border-b border-zinc-900 ${
+      className={`fixed top-0 z-40 w-full border-b border-zinc-900 ${
         !top && "bg-transparent shadow-lg backdrop-blur-sm"
       }`}
     >
@@ -69,7 +69,7 @@ export default function Header({ items, children }: MainNavProps) {
                 rel={item.isExternal ? "noreferrer" : undefined}
                 href={item.disabled ? "#" : item.href}
                 className={cn(
-                  "font-inter flex items-center text-sm font-medium text-[#888] transition-all duration-75 ease-linear hover:text-zinc-50",
+                  "flex items-center font-inter text-sm font-medium text-[#888] transition-all duration-75 ease-linear hover:text-zinc-50",
                   item.href.startsWith(`/${segment}`) && "text-white",
                   item.disabled && "cursor-not-allowed opacity-80",
                 )}

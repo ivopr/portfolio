@@ -4,7 +4,7 @@ import Link from "next/link"
 
 export function Footer() {
   return (
-    <footer className="mx-auto bg-black max-w-4xl py-3 text-gray-one/70">
+    <footer className="mx-auto max-w-4xl bg-black py-3 text-gray-one/70">
       <div className="flex items-center justify-center">
         <p className="group flex items-center text-xs">
           Criado por
@@ -12,7 +12,7 @@ export function Footer() {
             href="https://github.com/ivopr"
             rel="noreferrer"
             target="_blank"
-            className="inline-block ml-1 font-bold text-gray-one transition-colors duration-100 ease-linear group-hover:text-white"
+            className="ml-1 inline-block font-bold text-gray-one transition-colors duration-100 ease-linear group-hover:text-white"
           >
             Ivo Vieira
           </Link>

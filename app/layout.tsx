@@ -21,9 +21,8 @@ export const metadata: Metadata = {
 
 const inter = Inter({
   variable: "--font-inter",
-  weight: ["900"],
+  weight: "900",
   preload: false,
-  subsets: ["latin"],
 })
 
 const navItems: NavItem[] = [
@@ -47,11 +46,11 @@ export default function AboutLayout({
   return (
     <html lang="pt-BR" className={`${inter.className} bg-black`}>
       <head />
-      <body className="h-screen flex flex-1 flex-col font-inter text-white">
+      <body className="flex h-screen flex-1 flex-col font-inter text-white">
         <Suspense fallback={<div>Loading...</div>}>
           <Header items={navItems} />
           {/* <Palette /> */}
-          <section className="flex flex-1 mt-8">{children}</section>
+          <section className="mt-8 flex flex-1">{children}</section>
           <Footer />
         </Suspense>
       </body>

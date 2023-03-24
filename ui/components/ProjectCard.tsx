@@ -37,7 +37,7 @@ export function ProjectCard({
           <h4 className="pt-2 text-sm font-bold text-gray-one transition-colors duration-100 ease-linear group-hover:text-gray-300">
             {title}
           </h4>
-          <p className="py-1 line-clamp-2 font-grotesk text-xs text-gray-one/90 transition-colors duration-100 ease-linear group-hover:text-gray-300">
+          <p className="py-1 font-grotesk text-xs text-gray-one/90 transition-colors duration-100 ease-linear line-clamp-2 group-hover:text-gray-300">
             {description}
           </p>
         </div>
