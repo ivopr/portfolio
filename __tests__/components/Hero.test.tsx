@@ -1,3 +1,4 @@
+/* eslint-env jest */
 import { render, screen } from "@testing-library/react"
 
 import Hero from "@/ui/Hero"

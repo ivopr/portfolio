@@ -98,6 +98,7 @@ export default function Page({ params }: PageParams) {
             className="aspect-square h-[256px] w-full rounded object-cover"
             height={0}
             width={0}
+            unoptimized
             sizes="100vw"
             loading="lazy"
           />

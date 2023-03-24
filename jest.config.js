@@ -15,7 +15,7 @@ const customJestConfig = {
     "^@/app/(.*)$": "<rootDir>/app/$1",
     "^@/ui/(.*)$": "<rootDir>/ui/$1",
   },
-  testEnvironment: "jest-environment-jsdom",
+  testEnvironment: "jsdom",
   testPathIgnorePatterns: [
     "<rootDir>/node_modules/",
     "<rootDir>/.next/",
