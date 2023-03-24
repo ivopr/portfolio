@@ -1,0 +1,78 @@
+---
+title: "Visual Dynamics"
+description: "Uma ferramenta para acelerar a execução e aprendizagem em simulação de dinâmicas moleculares."
+publishedAt: "2023-03-23"
+image: "https://placekitten.com/1280/720"
+liveLink: "https://visualdynamics.fiocruz.br"
+githubLink: "https://github.com/LABIOQUIM/visualdynamics"
+status: "published"
+---
+
+A dinâmica molecular é uma abordagem para obter características cinéticas e termodinâmicas de estruturas biomoleculares. Os softwares de simulação de dinâmica molecular são muito úteis, porém, a maioria deles são usados em forma de linha de comando e continuam com as mesmas dificuldades comuns de implementação que afligem pesquisadores não especialistas em computação. 
+\
+\
+O Visual Dynamics é uma ferramenta web desenvolvida para automatizar simulações biológicas realizadas no [GROMACS](https://www.gromacs.org) usando uma interface gráfica para tornar a tarefa de simulação de dinâmica molecular amigável. Nesse novo aplicativo o pesquisador pode apresentar uma simulação da proteína na forma livre ou complexada com um ligante e ao final (e sucesso) da simulação poderá também baixar a análise gráfica, os arquivos de log e outros arquivos de interesse que são gerados pelo GROMACS.
+\
+\
+A aplicação é desenvolvida com o framework [Flask](https://flask.palletsprojects.com) e a linguagem de programação [Python](https://www.python.org). No processo de simulação a aplicação gera automaticamente uma lista de comandos que deve ser executada sequêncialmente.
+
+```sh showLineNumbers title="Lista de comandos gerada pelo Visual Dynamics para uma dinâmica de molécula livre (APO) com a molécula 2mu8." {16,22,28,34,43,45,46,48,50,52,53}
+#topology
+/usr/local/gromacs/bin/gmx pdb2gmx -f "2mu8.pdb" -o "2mu8.gro" -p "2mu8.top" -ff gromos53a6 -water spc -ignh -missing
+/usr/local/gromacs/bin/gmx editconf -f "2mu8.gro" -c -d 0.1 -bt cubic -o
+
+#solvate
+/usr/local/gromacs/bin/gmx solvate -cp out.gro -cs -p "2mu8.top" -o "2mu8_box"
+
+#ions
+/usr/local/gromacs/bin/gmx grompp -f ions.mdp -c "2mu8_box.gro" -p "2mu8.top" -o "2mu8_charged" -maxwarn 2
+echo 'SOL' | /usr/local/gromacs/bin/gmx genion -s "2mu8_charged.tpr" -o "2mu8_charged" -p "2mu8.top" -neutral
+
+#minimizationsteepdesc
+/usr/local/gromacs/bin/gmx grompp -f PME_em.mdp -c "2mu8_charged.gro" -p "2mu8.top" -o "2mu8_charged" -maxwarn 2
+/usr/local/gromacs/bin/gmx mdrun -v -s "2mu8_charged.tpr" -deffnm "2mu8_sd_em"
+echo '10 0' | /usr/local/gromacs/bin/gmx energy -f "2mu8_sd_em.edr" -o "2mu8_potentialsd.xvg"
+/sbin/gracebat -nxy "2mu8_potentialsd.xvg" -hdevice PNG -hardcopy -printfile "../graficos/2mu8_potentialsd.png"
+
+#minimizationconjgrad
+/usr/local/gromacs/bin/gmx grompp -f PME_cg_em.mdp -c "2mu8_sd_em.gro" -p "2mu8.top" -o "2mu8_cg_em" -maxwarn 2
+/usr/local/gromacs/bin/gmx mdrun -v -s "2mu8_cg_em.tpr" -deffnm "2mu8_cg_em"
+echo '10 0' | /usr/local/gromacs/bin/gmx energy -f "2mu8_cg_em.edr" -o "2mu8_potentialcg.xvg"
+/sbin/gracebat -nxy "2mu8_potentialcg.xvg" -hdevice PNG -hardcopy -printfile "../graficos/2mu8_potentialcg.png"
+
+#equilibrationnvt
+/usr/local/gromacs/bin/gmx grompp -f nvt.mdp -c "2mu8_cg_em.gro" -r "2mu8_cg_em.gro" -p "2mu8.top" -o "2mu8_nvt.tpr" -maxwarn 2
+/usr/local/gromacs/bin/gmx mdrun -v -s "2mu8_nvt.tpr" -deffnm "2mu8_nvt"
+echo '16 0' | /usr/local/gromacs/bin/gmx energy -f "2mu8_nvt.edr" -o "2mu8_temperature_nvt.xvg"
+/sbin/gracebat -nxy "2mu8_temperature_nvt.xvg" -hdevice PNG -hardcopy -printfile "../graficos/2mu8_temperature_nvt.png"
+
+#equilibrationnpt
+/usr/local/gromacs/bin/gmx grompp -f npt.mdp -c "2mu8_nvt.gro" -r "2mu8_nvt.gro" -p "2mu8.top" -o "2mu8_npt.tpr" -maxwarn 2
+/usr/local/gromacs/bin/gmx mdrun -v -s "2mu8_npt.tpr" -deffnm "2mu8_npt"
+echo '16 0' | /usr/local/gromacs/bin/gmx energy -f "2mu8_npt.edr" -o "2mu8_temperature_npt.xvg"
+/sbin/gracebat -nxy "2mu8_temperature_npt.xvg" -hdevice PNG -hardcopy -printfile "../graficos/2mu8_temperature_npt.png"
+
+#productionmd
+/usr/local/gromacs/bin/gmx grompp -f md_pr.mdp -c "2mu8_npt.gro" -p "2mu8.top" -o "2mu8_pr" -maxwarn 2
+/usr/local/gromacs/bin/gmx mdrun -v -s "2mu8_pr.tpr" -deffnm "2mu8_pr"
+
+#analyzemd
+echo '1 1' | /usr/local/gromacs/bin/gmx trjconv -s "2mu8_pr.tpr" -f "2mu8_pr.xtc" -o "2mu8_pr_PBC.xtc" -pbc mol -center
+echo '4 4' | /usr/local/gromacs/bin/gmx rms -s "2mu8_pr.tpr" -f "2mu8_pr_PBC.xtc" -o "2mu8_rmsd_prod.xvg" -tu ns
+/sbin/gracebat -nxy "2mu8_rmsd_prod.xvg" -hdevice PNG -hardcopy -printfile "../graficos/2mu8_rmsd_prod.png"
+echo '4 4' | /usr/local/gromacs/bin/gmx rms -s "2mu8_charged.tpr" -f "2mu8_pr_PBC.xtc" -o "2mu8_rmsd_cris.xvg" -tu ns
+/sbin/gracebat -nxy "2mu8_rmsd_cris.xvg" -hdevice PNG -hardcopy -printfile "../graficos/2mu8_rmsd_cris.png"
+/sbin/gracebat -nxy "2mu8_rmsd_prod.xvg" "2mu8_rmsd_cris.xvg" -hdevice PNG -hardcopy -printfile "../graficos/2mu8_rmsd_prod_cris.png"
+echo '1' | /usr/local/gromacs/bin/gmx gyrate -s "2mu8_pr.tpr" -f "2mu8_pr_PBC.xtc" -o "2mu8_gyrate.xvg"
+/sbin/gracebat -nxy "2mu8_gyrate.xvg" -hdevice PNG -hardcopy -printfile "../graficos/2mu8_gyrate.png"
+echo '1' | /usr/local/gromacs/bin/gmx rmsf -s "2mu8_pr.tpr" -f "2mu8_pr_PBC.xtc" -o "2mu8_rmsf_residue.xvg" -res
+/sbin/gracebat -nxy "2mu8_rmsf_residue.xvg" -hdevice PNG -hardcopy -printfile "../graficos/2mu8_rmsf_residue.png"
+echo '1' | /usr/local/gromacs/bin/gmx sasa -s "2mu8_pr.tpr" -f "2mu8_pr_PBC.xtc" -o "2mu8_solvent_accessible_surface.xvg" -or "2mu8_sas_residue.xvg"
+/sbin/gracebat -nxy "2mu8_solvent_accessible_surface.xvg" -hdevice PNG -hardcopy -printfile "../graficos/2mu8_solvent_accessible_surface.png"
+/sbin/gracebat -nxy "2mu8_sas_residue.xvg" -hdevice PNG -hardcopy -printfile "../graficos/2mu8_sas_residue.png"
+```
+
+Dessa lista, os comandos destacados são responsáveis pela geração de gráficos que no final auxiliam na compreensão de como a molécula se comportou durante a simulação e os comandos **não destacados** executam a simulação com o GROMACS.
+\
+\
+O Visual Dynamics é uma aplicação de código aberto que pode ser encontrada no GitHub em [LABIOQUIM/visualdynamics](https://github.com/LABIOQUIM/visualdynamics) e em produção vis [website](https://visualdynamics.fiocruz.br)
