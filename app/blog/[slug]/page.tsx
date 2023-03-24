@@ -1,29 +1,27 @@
-import Link from "next/link"
+import { MdOutlineKeyboardBackspace } from "react-icons/md";
+import { allPosts } from "contentlayer/generated";
+import Link from "next/link";
+import { useMDXComponent } from "next-contentlayer/hooks";
+import { PostProps } from "types";
 
-import { useMDXComponent } from "next-contentlayer/hooks"
-
-import { MdOutlineKeyboardBackspace } from "react-icons/md"
-
-import { PostProps } from "types"
-import { components } from "@/ui/components/MDXComponents"
-import { allPosts } from "contentlayer/generated"
+import { components } from "@/ui/components/MDXComponents";
 
 interface PageParams {
-  params: { slug: string }
+  params: { slug: string };
 }
 
 export async function generateMetadata({ params }: PageParams) {
-  const post = allPosts.find((p: PostProps) => p.slug === params.slug)
+  const post = allPosts.find((p: PostProps) => p.slug === params.slug);
 
   return {
-    title: `${post?.title} • Blog`,
-  }
+    title: `${post?.title} • Blog`
+  };
 }
 
 export default function Page({ params }: PageParams) {
-  const post = allPosts.find((p: PostProps) => p.slug === params.slug)
+  const post = allPosts.find((p: PostProps) => p.slug === params.slug);
 
-  const MDXContent = useMDXComponent(post ? post.body.code : "")
+  const MDXContent = useMDXComponent(post ? post.body.code : "");
 
   return (
     <section className="mx-auto max-w-2xl px-2 pt-10">
@@ -43,11 +41,11 @@ export default function Page({ params }: PageParams) {
         <div className="mx-auto mt-8 grid max-w-4xl text-gray-one">
           <MDXContent
             components={{
-              ...components,
+              ...components
             }}
           />
         </div>
       </div>
     </section>
-  )
+  );
 }

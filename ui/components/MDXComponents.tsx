@@ -1,14 +1,15 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
 /* eslint-disable jsx-a11y/heading-has-content */
-import { FOCUS_VISIBLE_OUTLINE, LINK_STYLES } from "@/lib/constants"
-import cx from "clsx"
-import type { ImageProps } from "next/image"
-import NextLink from "next/link"
-import React from "react"
-import { Code } from "@/ui/components/Code"
-import { Aside } from "@/ui/components/Aside"
-import { BlurImage } from "@/ui/components/BlurImage"
-import { Files } from "@/ui/components/Files"
+import React from "react";
+import cx from "clsx";
+import type { ImageProps } from "next/image";
+import NextLink from "next/link";
+
+import { FOCUS_VISIBLE_OUTLINE, LINK_STYLES } from "@/lib/constants";
+import { Aside } from "@/ui/components/Aside";
+import { BlurImage } from "@/ui/components/BlurImage";
+import { Code } from "@/ui/components/Code";
+import { Files } from "@/ui/components/Files";
 
 export const components = {
   // 🥴🥴 Nested Component imports via MDX are suddenly not JSX transformed 🥴🥴
@@ -29,10 +30,16 @@ export const components = {
     />
   ),
   h3: (props: any) => (
-    <h4 className="text-xl font-medium text-rose-100/90" {...props} />
+    <h4
+      className="text-xl font-medium text-rose-100/90"
+      {...props}
+    />
   ),
   h4: (props: any) => (
-    <h5 className="text-lg font-medium text-rose-100/90" {...props} />
+    <h5
+      className="text-lg font-medium text-rose-100/90"
+      {...props}
+    />
   ),
   hr: (props: any) => (
     <hr
@@ -50,7 +57,7 @@ export const components = {
           rel="noreferrer"
           {...props}
         />
-      )
+      );
     }
 
     return (
@@ -59,7 +66,7 @@ export const components = {
         className={cx(LINK_STYLES, FOCUS_VISIBLE_OUTLINE)}
         {...props}
       />
-    )
+    );
   },
   ul: (props: any) => (
     <ul
@@ -68,22 +75,30 @@ export const components = {
     />
   ),
   ol: (props: any) => (
-    <ol className="list-decimal space-y-3 pl-10" {...props} />
+    <ol
+      className="list-decimal space-y-3 pl-10"
+      {...props}
+    />
   ),
-  strong: (props: any) => <strong className="font-semibold" {...props} />,
+  strong: (props: any) => (
+    <strong
+      className="font-semibold"
+      {...props}
+    />
+  ),
   Img: ({
     bleed,
     caption,
     ...props
   }: {
-    children: React.ReactNode
-    bleed?: boolean
-    caption?: string
+    children: React.ReactNode;
+    bleed?: boolean;
+    caption?: string;
   } & ImageProps) => (
     <>
       <div
         className={cx({
-          "xl:!col-start-2 xl:!col-end-4": bleed === true,
+          "xl:!col-start-2 xl:!col-end-4": bleed === true
         })}
       >
         <BlurImage {...props} />
@@ -100,6 +115,9 @@ export const components = {
     />
   ),
   del: (props: any) => (
-    <del className="text-rose-100/70 line-through" {...props} />
-  ),
-}
+    <del
+      className="text-rose-100/70 line-through"
+      {...props}
+    />
+  )
+};

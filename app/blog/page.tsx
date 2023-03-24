@@ -1,11 +1,11 @@
-import BlogsGrid from "@/ui/components/BlogsGrid"
+import { allPosts } from "contentlayer/generated";
+import { Metadata } from "next";
 
-import { allPosts } from "contentlayer/generated"
-import { Metadata } from "next"
+import BlogsGrid from "@/ui/components/BlogsGrid";
 
 export const metadata: Metadata = {
-  title: "Blog",
-}
+  title: "Blog"
+};
 
 export default function Home() {
   return (
@@ -14,5 +14,5 @@ export default function Home() {
         allPosts={allPosts.filter((post) => post.status === "published")}
       />
     </section>
-  )
+  );
 }

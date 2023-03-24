@@ -1,14 +1,14 @@
 /* eslint-disable react/destructuring-assignment */
-import DocumentTextIcon from "@heroicons/react/outline/DocumentTextIcon"
-import FolderIcon from "@heroicons/react/outline/FolderIcon"
-import cx from "clsx"
-import React from "react"
+import React from "react";
+import DocumentTextIcon from "@heroicons/react/outline/DocumentTextIcon";
+import FolderIcon from "@heroicons/react/outline/FolderIcon";
+import cx from "clsx";
 
 type Node = {
-  name: string
-  isHighlighted?: boolean
-  children?: Node[]
-}
+  name: string;
+  isHighlighted?: boolean;
+  children?: Node[];
+};
 
 function Inner({ data, lvl }: { data: Node[]; lvl: number }) {
   return (
@@ -21,8 +21,8 @@ function Inner({ data, lvl }: { data: Node[]; lvl: number }) {
               {
                 "border-l-rose-300/70 bg-rose-200/10 before:text-white/70":
                   node.isHighlighted,
-                "before:text-white/20": !node.isHighlighted,
-              },
+                "before:text-white/20": !node.isHighlighted
+              }
             )}
           >
             <div
@@ -30,7 +30,7 @@ function Inner({ data, lvl }: { data: Node[]; lvl: number }) {
                 "pl-[20px]": lvl === 1,
                 "pl-[40px]": lvl === 2,
                 "pl-[60px]": lvl === 3,
-                "pl-[80px]": lvl === 4,
+                "pl-[80px]": lvl === 4
               })}
             >
               {!node.children ? (
@@ -41,18 +41,23 @@ function Inner({ data, lvl }: { data: Node[]; lvl: number }) {
             </div>
             <div
               className={cx(
-                node.isHighlighted ? "text-rose-50" : "text-rose-100/90",
+                node.isHighlighted ? "text-rose-50" : "text-rose-100/90"
               )}
             >
               {node.name}
             </div>
           </div>
 
-          {node.children ? <Inner data={node.children} lvl={lvl + 1} /> : null}
+          {node.children ? (
+            <Inner
+              data={node.children}
+              lvl={lvl + 1}
+            />
+          ) : null}
         </React.Fragment>
       ))}
     </>
-  )
+  );
 }
 
 export function Files(props: { data: Node[]; title?: string }) {
@@ -64,8 +69,11 @@ export function Files(props: { data: Node[]; title?: string }) {
         </div>
       ) : null}
       <div className="py-3 text-[13px] leading-6 [counter-reset:line]">
-        <Inner {...props} lvl={0} />
+        <Inner
+          {...props}
+          lvl={0}
+        />
       </div>
     </div>
-  )
+  );
 }

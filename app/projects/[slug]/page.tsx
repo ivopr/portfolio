@@ -1,36 +1,33 @@
-import Link from "next/link"
+import { FaGooglePlay } from "react-icons/fa";
+import { MdOutlineKeyboardBackspace } from "react-icons/md";
+import { allProjects } from "contentlayer/generated";
+import { Github as GithubIcon, Link as LinkIcon } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { useMDXComponent } from "next-contentlayer/hooks";
+import { ProjectProps } from "types";
 
-import { useMDXComponent } from "next-contentlayer/hooks"
-
-import { MdOutlineKeyboardBackspace } from "react-icons/md"
-
-import { ProjectProps } from "types"
-import { components } from "@/ui/components/MDXComponents"
-import { allProjects } from "contentlayer/generated"
-
-import { FaGooglePlay } from "react-icons/fa"
-import { Github as GithubIcon, Link as LinkIcon } from "lucide-react"
-import Image from "next/image"
+import { components } from "@/ui/components/MDXComponents";
 
 interface PageParams {
-  params: { slug: string }
+  params: { slug: string };
 }
 
 export async function generateMetadata({ params }: PageParams) {
-  const project = allProjects.find((p: ProjectProps) => p.slug === params.slug)
+  const project = allProjects.find((p: ProjectProps) => p.slug === params.slug);
 
   return {
-    title: `${project?.title} • Projetos`,
-  }
+    title: `${project?.title} • Projetos`
+  };
 }
 
 export default function Page({ params }: PageParams) {
-  const project = allProjects.find((p: ProjectProps) => p.slug === params.slug)
+  const project = allProjects.find((p: ProjectProps) => p.slug === params.slug);
 
-  const MDXContent = useMDXComponent(project ? project.body.code : "")
+  const MDXContent = useMDXComponent(project ? project.body.code : "");
 
   if (!project) {
-    return <>ROLA</>
+    return <>ROLA</>;
   }
 
   return (
@@ -106,11 +103,11 @@ export default function Page({ params }: PageParams) {
         <div className="mx-auto mt-8 grid max-w-4xl text-gray-one">
           <MDXContent
             components={{
-              ...components,
+              ...components
             }}
           />
         </div>
       </div>
     </section>
-  )
+  );
 }

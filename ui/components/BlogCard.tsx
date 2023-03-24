@@ -1,11 +1,13 @@
-import Link from "next/link"
-
-import { PostProps } from "types"
+import Link from "next/link";
+import { PostProps } from "types";
 
 export default function BlogCard({ title, slug }: Partial<PostProps>) {
   return (
     <div className="group">
-      <Link href="/blog/[slug]" as={`/blog/${slug}`}>
+      <Link
+        href="/blog/[slug]"
+        as={`/blog/${slug}`}
+      >
         <div className="rounded border-2 border-transparent transition-all duration-100 ease-linear">
           <div className="h-[150px]">
             {/* <Image
@@ -37,5 +39,5 @@ export default function BlogCard({ title, slug }: Partial<PostProps>) {
         </div>
       </Link>
     </div>
-  )
+  );
 }

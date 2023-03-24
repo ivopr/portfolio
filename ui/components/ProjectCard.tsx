@@ -1,11 +1,10 @@
-"use client"
+"use client";
 
-import { Github as GithubIcon, Link as LinkIcon } from "lucide-react"
-import Image from "next/image"
-import Link from "next/link"
-import { FaGooglePlay } from "react-icons/fa"
-
-import { ProjectProps } from "types"
+import { FaGooglePlay } from "react-icons/fa";
+import { Github as GithubIcon, Link as LinkIcon } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { ProjectProps } from "types";
 
 export function ProjectCard({
   slug,
@@ -15,11 +14,14 @@ export function ProjectCard({
   googlePlayLink,
   liveLink,
   imageAlt,
-  image,
+  image
 }: ProjectProps) {
   return (
     <div className="group">
-      <Link href="/projects/[slug]" as={`/projects/${slug}`}>
+      <Link
+        href="/projects/[slug]"
+        as={`/projects/${slug}`}
+      >
         <div className="rounded border-2 border-transparent transition-all duration-100 ease-linear">
           <div className="h-[150px]">
             {image ? (
@@ -86,5 +88,5 @@ export function ProjectCard({
         ) : null}
       </div>
     </div>
-  )
+  );
 }

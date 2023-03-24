@@ -1,38 +1,33 @@
-/* eslint-disable react/jsx-pascal-case */
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable react/no-array-index-key */
-/* eslint-disable no-unused-expressions */
+"use client";
 
-"use client"
+import React, { useEffect, useState } from "react";
+import { FiGithub } from "react-icons/fi";
+import Link from "next/link";
+import { useSelectedLayoutSegment } from "next/navigation";
+import { NavItem } from "types";
 
-import { cn } from "@/lib/utils"
-import { Icons } from "@/ui/components/icons"
-import { MobileNav } from "@/ui/components/MobileNav"
-import Link from "next/link"
-import { useSelectedLayoutSegment } from "next/navigation"
-import React, { useEffect, useState } from "react"
-import { NavItem } from "types"
-
-import { FiGithub } from "react-icons/fi"
+import { cn } from "@/lib/utils";
+import { Icons } from "@/ui/components/icons";
+import { MobileNav } from "@/ui/components/MobileNav";
 
 interface MainNavProps {
-  items: NavItem[]
-  children?: React.ReactNode
+  items: NavItem[];
+  children?: React.ReactNode;
 }
 
 export default function Header({ items, children }: MainNavProps) {
-  const [top, setTop] = useState(true)
-  const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false)
-  const segment = useSelectedLayoutSegment()
+  const [top, setTop] = useState(true);
+  const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false);
+  const segment = useSelectedLayoutSegment();
 
   // detect whether user has scrolled the page down by 10px
   useEffect(() => {
     const scrollHandler = () => {
-      window.scrollY > 10 ? setTop(false) : setTop(true)
-    }
-    window.addEventListener("scroll", scrollHandler)
-    return () => window.removeEventListener("scroll", scrollHandler)
-  }, [top])
+      window.scrollY > 10 ? setTop(false) : setTop(true);
+    };
+    window.addEventListener("scroll", scrollHandler);
+    return () => window.removeEventListener("scroll", scrollHandler);
+  }, [top]);
 
   return (
     <header
@@ -43,7 +38,10 @@ export default function Header({ items, children }: MainNavProps) {
       <div className="mx-auto max-w-5xl">
         <div className="flex h-12 items-center justify-between py-2 px-2">
           <div className="flex justify-between gap-6 md:gap-10">
-            <Link className="hidden items-center space-x-2 md:flex" href="/">
+            <Link
+              className="hidden items-center space-x-2 md:flex"
+              href="/"
+            >
               <Icons.logo />
 
               <span className="hidden font-bold sm:inline-block">
@@ -71,7 +69,7 @@ export default function Header({ items, children }: MainNavProps) {
                 className={cn(
                   "flex items-center font-inter text-sm font-medium text-[#888] transition-all duration-75 ease-linear hover:text-zinc-50",
                   item.href.startsWith(`/${segment}`) && "text-white",
-                  item.disabled && "cursor-not-allowed opacity-80",
+                  item.disabled && "cursor-not-allowed opacity-80"
                 )}
               >
                 {item.title}
@@ -88,11 +86,14 @@ export default function Header({ items, children }: MainNavProps) {
           </Link>
         </div>
         {showMobileMenu && (
-          <MobileNav segment={segment} items={items}>
+          <MobileNav
+            segment={segment}
+            items={items}
+          >
             {children}
           </MobileNav>
         )}
       </div>
     </header>
-  )
+  );
 }
