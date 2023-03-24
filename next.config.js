@@ -7,7 +7,7 @@ const nextConfig = {
     appDir: true,
   },
   images: {
-    domains: ["placekitten.com"],
+    domains: ["placekitten.com", "ivo.vist.gg"],
   },
 }
 

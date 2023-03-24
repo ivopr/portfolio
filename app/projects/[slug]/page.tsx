@@ -10,7 +10,6 @@ import { allProjects } from "contentlayer/generated"
 
 import { FaGooglePlay } from "react-icons/fa"
 import { Github as GithubIcon, Link as LinkIcon } from "lucide-react"
-import Seo from "@/ui/Seo"
 import Image from "next/image"
 
 interface PageParams {
@@ -36,7 +35,6 @@ export default function Page({ params }: PageParams) {
 
   return (
     <section className="mx-auto max-w-2xl px-2 pt-10">
-      <Seo title={project.title} />
       <Link
         href="/projects"
         className="group inline-flex rounded bg-gray-1001 p-2 transition-colors duration-100 ease-linear hover:bg-gray-1001/70"
@@ -48,7 +46,7 @@ export default function Page({ params }: PageParams) {
           <h2 className="leading-tighter mt-3 max-w-2xl text-3xl font-extrabold tracking-tighter md:text-5xl">
             {project?.title}
           </h2>
-          <div className="flex gap-x-2 items-center pt-2">
+          <div className="flex items-center gap-x-2 pt-2">
             {project?.githubLink ? (
               <Link
                 href={project.githubLink}
