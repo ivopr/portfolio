@@ -29,6 +29,7 @@ export function ProjectCard({
                 className="aspect-square h-[150px] w-full rounded object-cover"
                 height={0}
                 width={0}
+                unoptimized
                 sizes="100vw"
                 loading="lazy"
               />
