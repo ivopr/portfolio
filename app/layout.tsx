@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 
 const inter = Inter({
   variable: "--font-inter",
-  weight: "900",
+  weight: ["400", "900"],
   preload: false
 });
 
@@ -48,14 +48,16 @@ export default function AboutLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${inter.className} bg-black`}
+      className={`${inter.className} bg-black heropattern-diagonallines-white/10`}
     >
       <head />
-      <body className="flex h-screen flex-1 flex-col font-inter text-white">
+      <body className="flex h-screen flex-1 flex-col items-center font-inter text-white">
         <Suspense fallback={<div>Loading...</div>}>
           <Header items={navItems} />
           {/* <Palette /> */}
-          <section className="mt-12 flex flex-1">{children}</section>
+          <section className="mt-12 max-w-2xl w-full px-4 pt-5 md:pt-10 flex flex-1 flex-col">
+            {children}
+          </section>
           <Footer />
         </Suspense>
       </body>

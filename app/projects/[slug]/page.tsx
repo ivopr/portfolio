@@ -31,10 +31,10 @@ export default function Page({ params }: PageParams) {
   }
 
   return (
-    <section className="mx-auto max-w-2xl px-2 pt-10">
+    <>
       <Link
         href="/projects"
-        className="group inline-flex rounded bg-gray-1001 p-2 transition-colors duration-100 ease-linear hover:bg-gray-1001/70"
+        className="group inline-flex rounded bg-gray-1001 p-2 transition-colors duration-100 ease-linear w-fit hover:bg-gray-1001/70"
       >
         <MdOutlineKeyboardBackspace className="text-gray-one transition-colors duration-100 ease-linear group-hover:text-gray-100" />
       </Link>
@@ -92,7 +92,7 @@ export default function Page({ params }: PageParams) {
           <Image
             src={project.image}
             alt={project?.imageAlt ?? "Project Image"}
-            className="aspect-square h-[256px] w-full rounded object-cover"
+            className="max-h-[256px] w-full rounded object-contain"
             height={0}
             width={0}
             unoptimized
@@ -108,6 +108,6 @@ export default function Page({ params }: PageParams) {
           />
         </div>
       </div>
-    </section>
+    </>
   );
 }

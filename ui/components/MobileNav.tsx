@@ -14,9 +14,15 @@ interface MobileNavProps {
   items: NavItem[];
   children?: React.ReactNode;
   segment?: string | null;
+  closeNavbar: () => void;
 }
 
-export function MobileNav({ items, children, segment }: MobileNavProps) {
+export function MobileNav({
+  closeNavbar,
+  items,
+  children,
+  segment
+}: MobileNavProps) {
   useLockBody();
 
   return (
@@ -29,6 +35,7 @@ export function MobileNav({ items, children, segment }: MobileNavProps) {
         <Link
           href="/"
           className="flex items-center space-x-2"
+          onClick={closeNavbar}
         >
           <Icons.logo />
           <span className="font-bold">Ivo Vieira</span>
@@ -40,6 +47,7 @@ export function MobileNav({ items, children, segment }: MobileNavProps) {
               target={item.isExternal ? "_blank" : undefined}
               rel={item.isExternal ? "noreferrer" : undefined}
               href={item.disabled ? "#" : item.href}
+              onClick={closeNavbar}
               className={cn(
                 "flex w-full p-2 items-center font-inter text-sm font-medium text-[#888] transition-all duration-75 ease-linear hover:text-zinc-50",
                 item.href.startsWith(`/${segment}`) && "text-white",

@@ -87,8 +87,9 @@ export default function Header({ items, children }: MainNavProps) {
         </div>
         {showMobileMenu && (
           <MobileNav
-            segment={segment}
+            closeNavbar={() => setShowMobileMenu(false)}
             items={items}
+            segment={segment}
           >
             {children}
           </MobileNav>

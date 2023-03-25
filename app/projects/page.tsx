@@ -9,12 +9,12 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <section className="container mx-auto pb-8 text-left">
+    <>
       <ProjectsGrid
         projects={allProjects.filter(
           (project) => project.status === "published"
         )}
       />
-    </section>
+    </>
   );
 }

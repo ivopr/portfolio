@@ -8,7 +8,7 @@ interface ProjectsGridProps {
 
 export function ProjectsGrid({ projects }: ProjectsGridProps) {
   return (
-    <div className="mx-auto max-w-2xl px-2">
+    <>
       <h2 className="leading-tighter mx-auto mt-3 max-w-2xl text-3xl font-extrabold tracking-tighter md:text-5xl">
         Projetos
       </h2>
@@ -20,6 +20,6 @@ export function ProjectsGrid({ projects }: ProjectsGridProps) {
           />
         ))}
       </div>
-    </div>
+    </>
   );
 }
