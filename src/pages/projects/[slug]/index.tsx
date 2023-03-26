@@ -32,7 +32,7 @@ export default function Page({ project }: { project: ProjectProps }) {
       <HeaderSEO
         title={project.title}
         description={project.description}
-        ogImage={`title=${project.title}&type=project&image${
+        ogImage={`title=${project.title}&type=project&image=${
           project.image?.split("/")[2]
         }`}
       />
