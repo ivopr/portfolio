@@ -1,6 +1,7 @@
 import React, { Suspense } from "react";
 import { AppProps } from "next/app";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 
 import { Footer } from "@app/components/Layout/Footer";
 import { Header } from "@app/components/Layout/Header";
@@ -38,6 +39,21 @@ export default function App({ Component, pageProps }: AppProps) {
           <Footer />
         </Suspense>
       </div>
+
+      {/* Google tag (gtag.js) */}
+      <Script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-HZC72N296P"
+      ></Script>
+      <Script id="gtag">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-HZC72N296P');
+        `}
+      </Script>
     </main>
   );
 }
