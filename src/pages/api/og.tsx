@@ -27,12 +27,12 @@ export default function handler(req: NextRequest) {
     if (hasImage) {
       return new ImageResponse(
         (
-          <div tw="flex flex-col text-white bg-black/90 heropattern-diagonallines-white/10 w-full h-full">
+          <div tw="flex flex-col text-white bg-black/90 w-full h-full">
             <div tw="items-center justify-center flex flex-col w-full h-full p-6">
               <div tw="relative w-1/2 h-1/2 flex overflow-hidden mx-auto rounded-xl bg-white/[2%] after:pointer-events-none after:absolute after:inset-0 after:z-10 after:rounded-xl after:border after:border-rose-200/10 after:content-['']">
                 <img
                   alt={title}
-                  src={`http://localhost:3000/images/${type}/${image}`}
+                  src={`https://ivo.vist.gg/images/${type}/${image}`}
                   tw="w-full h-full"
                 />
               </div>
@@ -73,7 +73,7 @@ export default function handler(req: NextRequest) {
 
     return new ImageResponse(
       (
-        <div tw="flex flex-col text-white bg-black/90 heropattern-diagonallines-white/10 w-full h-full">
+        <div tw="flex flex-col text-white bg-black/90 w-full h-full">
           <div tw="items-center justify-center flex flex-col w-full h-full p-6">
             <svg
               fill="white"
