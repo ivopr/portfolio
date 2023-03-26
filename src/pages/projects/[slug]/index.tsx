@@ -33,7 +33,7 @@ export default function Page({ project }: { project: ProjectProps }) {
         title={project.title}
         description={project.description}
         ogImage={`title=${project.title}&type=project&image=${
-          project.image?.split("/")[2]
+          project.image?.split("/")[3]
         }`}
       />
       <GoBackButton />
