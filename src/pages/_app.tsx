@@ -44,10 +44,13 @@ export default function App({ Component, pageProps }: AppProps) {
         <>
           {/* Google tag (gtag.js) */}
           <Script
-            async
             src="https://www.googletagmanager.com/gtag/js?id=G-HZC72N296P"
+            strategy="afterInteractive"
           ></Script>
-          <Script id="gtag">
+          <Script
+            id="gtag"
+            strategy="afterInteractive"
+          >
             {`
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
