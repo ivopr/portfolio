@@ -3,5 +3,15 @@
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "editor.codeActionsOnSave": {
     "source.fixAll": true
+  },
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "node_modules": true,
+    ".next": true,
+    ".contentlayer": true,
+    "tsconfig.tsbuildinfo": true,
+    "next-env.d.ts": true
   }
 }

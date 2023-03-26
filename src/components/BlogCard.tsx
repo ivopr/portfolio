@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { PostProps } from "types";
 
 export default function BlogCard({ title, slug }: Partial<PostProps>) {
   return (

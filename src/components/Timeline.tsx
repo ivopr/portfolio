@@ -8,6 +8,7 @@ type TimelineItem = {
 
 interface TimelineProps {
   showRecentsOnly?: boolean;
+  showTitle?: boolean;
 }
 
 const items: TimelineItem[] = [
@@ -44,12 +45,12 @@ const items: TimelineItem[] = [
   }
 ];
 
-export function Timeline({ showRecentsOnly }: TimelineProps) {
+export function Timeline({ showRecentsOnly, showTitle }: TimelineProps) {
   const renderableItems = showRecentsOnly ? items.slice(0, 3) : items;
 
   return (
-    <section className="flex flex-col gap-y-2">
-      <h2 className="text-2xl">Linha do Tempo</h2>
+    <section className={`${!showTitle ? "mt-5" : ""} flex flex-col gap-y-2`}>
+      {showTitle ? <h2 className="text-2xl">Linha do Tempo</h2> : null}
       <ol className="relative border-l border-gray-200 dark:border-gray-700">
         {renderableItems.map((item) => (
           <li

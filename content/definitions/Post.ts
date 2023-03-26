@@ -3,10 +3,11 @@
 import { defineDocumentType } from "contentlayer/source-files";
 import GithubSlugger from "github-slugger";
 
+import { formatShortDate } from "../../src/lib/formatShortDate";
+
 // esbuild doesn't support module aliases 😤🤌
 // https://github.com/evanw/esbuild/issues/394
 // https://github.com/contentlayerdev/contentlayer/issues/238
-import { formatShortDate } from "../../lib/formatShortDate";
 
 export const Post = defineDocumentType(() => ({
   name: "Post",

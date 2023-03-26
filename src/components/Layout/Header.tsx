@@ -1,24 +1,21 @@
-"use client";
-
 import React, { useEffect, useState } from "react";
-import { FiGithub } from "react-icons/fi";
 import Link from "next/link";
-import { useSelectedLayoutSegment } from "next/navigation";
-import { NavItem } from "types";
+import { useRouter } from "next/router";
 
-import { cn } from "@/lib/utils";
-import { Icons } from "@/ui/components/icons";
-import { MobileNav } from "@/ui/components/MobileNav";
+import { Icons } from "@app/components/Icons";
+import { cn } from "@app/lib/utils";
+
+import { MobileNav } from "./MobileNav";
 
 interface MainNavProps {
   items: NavItem[];
   children?: React.ReactNode;
 }
 
-export default function Header({ items, children }: MainNavProps) {
+export function Header({ items, children }: MainNavProps) {
   const [top, setTop] = useState(true);
   const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false);
-  const segment = useSelectedLayoutSegment();
+  const { pathname } = useRouter();
 
   // detect whether user has scrolled the page down by 10px
   useEffect(() => {
@@ -42,7 +39,7 @@ export default function Header({ items, children }: MainNavProps) {
               className="hidden items-center space-x-2 md:flex"
               href="/"
             >
-              <Icons.logo />
+              <Icons.Logo />
 
               <span className="hidden font-bold sm:inline-block">
                 Ivo Vieira
@@ -53,7 +50,7 @@ export default function Header({ items, children }: MainNavProps) {
               className="flex items-center space-x-2 md:hidden"
               onClick={() => setShowMobileMenu(!showMobileMenu)}
             >
-              {showMobileMenu ? <Icons.close /> : <Icons.logo />}
+              {showMobileMenu ? <Icons.Close /> : <Icons.Logo />}
               <span className="font-bold">
                 {showMobileMenu ? "Close" : "Menu"}
               </span>
@@ -68,7 +65,9 @@ export default function Header({ items, children }: MainNavProps) {
                 href={item.disabled ? "#" : item.href}
                 className={cn(
                   "flex items-center font-inter text-sm font-medium text-[#888] transition-all duration-75 ease-linear hover:text-zinc-50",
-                  item.href.startsWith(`/${segment}`) && "text-white",
+                  item.href.startsWith(`/${pathname.split("/")[1]}`) &&
+                    pathname !== "/" &&
+                    "text-white",
                   item.disabled && "cursor-not-allowed opacity-80"
                 )}
               >
@@ -82,14 +81,14 @@ export default function Header({ items, children }: MainNavProps) {
             rel="noreferrer"
             className="group rounded bg-gray-1000 p-2 transition-colors duration-100 ease-linear hover:bg-gray-1001"
           >
-            <FiGithub className="text-gray-one transition-colors duration-100 ease-linear group-hover:text-gray-100" />
+            <Icons.Github className="text-gray-one transition-colors duration-100 ease-linear group-hover:text-gray-100" />
           </Link>
         </div>
         {showMobileMenu && (
           <MobileNav
             closeNavbar={() => setShowMobileMenu(false)}
             items={items}
-            segment={segment}
+            segment={pathname.split("/")[1]}
           >
             {children}
           </MobileNav>

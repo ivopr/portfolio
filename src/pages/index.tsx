@@ -1,8 +1,10 @@
-import { Timeline } from "@/ui/components/Timeline";
+import { HeaderSEO } from "@app/components/Layout/HeaderSEO";
+import { Timeline } from "@app/components/Timeline";
 
 export default function Home() {
   return (
     <section className="flex flex-col gap-y-4">
+      <HeaderSEO title="Inicio" />
       <h1 className="text-5xl font-bold">Olá,</h1>
       <p>
         Meu nome é Ivo, sou estudante de Ciência da Computação na UNIR
@@ -15,7 +17,10 @@ export default function Home() {
         um melhor na página dos meus projetos.
       </p>
 
-      <Timeline showRecentsOnly />
+      <Timeline
+        showTitle
+        showRecentsOnly
+      />
     </section>
   );
 }

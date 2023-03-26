@@ -3,12 +3,7 @@ const { fontFamily } = require("tailwindcss/defaultTheme");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./app/**/*.{js,ts,jsx,tsx}",
-    "./page/**/*.{js,ts,jsx,tsx}",
-    "./ui/**/*.{js,ts,jsx,tsx}",
-    "./lib/rehypePrettyCode.ts"
-  ],
+  content: ["./src/**/*.{js,ts,jsx,tsx}"],
   future: {
     hoverOnlyWhenSupported: true
   },

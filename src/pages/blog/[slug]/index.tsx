@@ -1,26 +1,27 @@
 import { MdOutlineKeyboardBackspace } from "react-icons/md";
 import { allPosts } from "contentlayer/generated";
+import { GetStaticPaths, GetStaticProps } from "next";
 import Link from "next/link";
 import { useMDXComponent } from "next-contentlayer/hooks";
-import { PostProps } from "types";
 
-import { components } from "@/ui/components/MDXComponents";
+import { components } from "@app/components/MDX/MDXComponents";
 
-interface PageParams {
-  params: { slug: string };
-}
-
-export async function generateMetadata({ params }: PageParams) {
-  const post = allPosts.find((p: PostProps) => p.slug === params.slug);
-
+export const getStaticPaths: GetStaticPaths = async () => {
   return {
-    title: `${post?.title} • Blog`
+    paths: allPosts.map((p) => ({ params: { slug: p.slug } })),
+    fallback: false
   };
-}
+};
 
-export default function Page({ params }: PageParams) {
-  const post = allPosts.find((p: PostProps) => p.slug === params.slug);
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  return {
+    props: {
+      project: allPosts.find((p) => p.slug === params?.slug)
+    }
+  };
+};
 
+export default function Page({ post }: { post: PostProps }) {
   const MDXContent = useMDXComponent(post ? post.body.code : "");
 
   return (

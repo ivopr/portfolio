@@ -1,15 +1,14 @@
-/* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable jsx-a11y/heading-has-content */
 import React from "react";
 import cx from "clsx";
 import type { ImageProps } from "next/image";
 import NextLink from "next/link";
 
-import { FOCUS_VISIBLE_OUTLINE, LINK_STYLES } from "@/lib/constants";
-import { Aside } from "@/ui/components/Aside";
-import { BlurImage } from "@/ui/components/BlurImage";
-import { Code } from "@/ui/components/Code";
-import { Files } from "@/ui/components/Files";
+import { BlurImage } from "@app/components/BlurImage";
+import { FOCUS_VISIBLE_OUTLINE, LINK_STYLES } from "@app/lib/constants";
+
+import { Aside } from "./Aside";
+import { Code } from "./Code";
+import { Files } from "./Files";
 
 export const components = {
   // 🥴🥴 Nested Component imports via MDX are suddenly not JSX transformed 🥴🥴
@@ -101,7 +100,14 @@ export const components = {
           "xl:!col-start-2 xl:!col-end-4": bleed === true
         })}
       >
-        <BlurImage {...props} />
+        <BlurImage
+          className="w-full rounded object-contain"
+          height={0}
+          width={0}
+          sizes="100vw"
+          loading="lazy"
+          {...props}
+        />
       </div>
       {caption ? (
         <div className="mt-2 text-sm italic text-rose-100/60">{caption}</div>

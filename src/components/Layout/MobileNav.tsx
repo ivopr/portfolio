@@ -1,14 +1,8 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable react/no-array-index-key */
-/* eslint-disable react/jsx-pascal-case */
-import * as React from "react";
 import Link from "next/link";
-import { NavItem } from "types";
 
-import { useLockBody } from "@/hooks/use-lock-body";
-import { cn } from "@/lib/utils";
-
-import { Icons } from "./icons";
+import { Icons } from "@app/components/Icons";
+import { useLockBody } from "@app/hooks/use-lock-body";
+import { cn } from "@app/lib/utils";
 
 interface MobileNavProps {
   items: NavItem[];
@@ -37,7 +31,7 @@ export function MobileNav({
           className="flex items-center space-x-2"
           onClick={closeNavbar}
         >
-          <Icons.logo />
+          <Icons.Logo />
           <span className="font-bold">Ivo Vieira</span>
         </Link>
         <nav className="grid grid-flow-row auto-rows-max text-sm">

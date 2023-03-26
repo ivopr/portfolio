@@ -1,10 +1,7 @@
-"use client";
-
-import { FaGooglePlay } from "react-icons/fa";
-import { Github as GithubIcon, Link as LinkIcon } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
-import { ProjectProps } from "types";
+
+import { BlurImage } from "./BlurImage";
+import { Icons } from "./Icons";
 
 export function ProjectCard({
   slug,
@@ -23,15 +20,14 @@ export function ProjectCard({
         as={`/projects/${slug}`}
       >
         <div className="rounded border-2 border-transparent transition-all duration-100 ease-linear">
-          <div className="h-[150px]">
+          <div className="h-[150px] w-full">
             {image ? (
-              <Image
+              <BlurImage
                 src={image}
                 alt={imageAlt ?? "Project Image"}
-                className="aspect-square h-[150px] w-full rounded object-cover"
+                className="h-[150px] w-full rounded object-cover"
                 height={0}
                 width={0}
-                unoptimized
                 sizes="100vw"
                 loading="lazy"
               />
@@ -54,7 +50,7 @@ export function ProjectCard({
             rel="noreferrer"
             className="group rounded bg-gray-1001 p-2 transition-colors duration-100 ease-linear hover:bg-gray-1001/70"
           >
-            <GithubIcon
+            <Icons.Github
               size={16}
               className="text-gray-one transition-colors duration-100 ease-linear group-hover:text-gray-100"
             />
@@ -67,7 +63,7 @@ export function ProjectCard({
             rel="noreferrer"
             className="group rounded bg-gray-1001 p-2 transition-colors duration-100 ease-linear hover:bg-gray-1001/70"
           >
-            <LinkIcon
+            <Icons.Link
               size={16}
               className="text-gray-one  transition-colors duration-100 ease-linear group-hover:text-gray-100"
             />
@@ -80,7 +76,7 @@ export function ProjectCard({
             rel="noreferrer"
             className="group rounded bg-gray-1001 p-2 transition-colors duration-100 ease-linear hover:bg-gray-1001/70"
           >
-            <FaGooglePlay
+            <Icons.GooglePlay
               size={16}
               className="text-gray-one transition-colors duration-100 ease-linear group-hover:text-gray-100"
             />

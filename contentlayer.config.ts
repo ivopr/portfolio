@@ -7,11 +7,11 @@ import remarkGfm from "remark-gfm";
 
 import { Post } from "./content/definitions/Post";
 import { Project } from "./content/definitions/Project";
-import { HEADING_LINK_ANCHOR } from "./lib/constants";
+import { HEADING_LINK_ANCHOR } from "./src/lib/constants";
 import {
   rehypePrettyCodeClasses,
   rehypePrettyCodeOptions
-} from "./lib/rehypePrettyCode";
+} from "./src/lib/rehypePrettyCode";
 
 export default makeSource({
   contentDirPath: "content",
