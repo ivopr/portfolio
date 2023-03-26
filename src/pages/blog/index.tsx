@@ -8,12 +8,14 @@ export default function Home() {
     <>
       <PageTitle title="Blog" />
       <div className="mx-auto mt-8 grid max-w-4xl grid-cols-1 gap-2 sm:grid-cols-2">
-        {allPosts.map((p: PostProps) => (
-          <BlogCard
-            key={p.title}
-            {...p}
-          />
-        ))}
+        {allPosts
+          .filter((p) => p.status === "published")
+          .map((p: PostProps) => (
+            <BlogCard
+              key={p.title}
+              {...p}
+            />
+          ))}
       </div>
     </>
   );
