@@ -40,20 +40,24 @@ export default function App({ Component, pageProps }: AppProps) {
         </Suspense>
       </div>
 
-      {/* Google tag (gtag.js) */}
-      <Script
-        async
-        src="https://www.googletagmanager.com/gtag/js?id=G-HZC72N296P"
-      ></Script>
-      <Script id="gtag">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'G-HZC72N296P');
-        `}
-      </Script>
+      {process.env.NODE_ENV === "production" ? (
+        <>
+          {/* Google tag (gtag.js) */}
+          <Script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-HZC72N296P"
+          ></Script>
+          <Script id="gtag">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+    
+              gtag('config', 'G-HZC72N296P');
+            `}
+          </Script>
+        </>
+      ) : null}
     </main>
   );
 }
