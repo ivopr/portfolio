@@ -48,11 +48,11 @@ export function HeaderSEO({ title, description, ogImage }: HeaderSEOProps) {
         <>
           <meta
             property="og:image"
-            content={`${hostname}/api/og?${ogImage}`}
+            content={`${hostname}${ogImage}`}
           />
           <meta
             property="twitter:image"
-            content={`${hostname}/api/og?${ogImage}`}
+            content={`${hostname}${ogImage}`}
           />
         </>
       ) : null}
