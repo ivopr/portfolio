@@ -1,17 +1,19 @@
 import Head from "next/head";
+import { useRouter } from "next/router";
 
 interface HeaderSEOProps {
-  title: string;
+  title?: string;
   description?: string;
   ogImage?: string;
 }
 
 export function HeaderSEO({ title, description, ogImage }: HeaderSEOProps) {
   const hostname = typeof window !== "undefined" ? window.origin : "";
+  const { pathname } = useRouter();
 
   return (
     <Head>
-      <title>{title}</title>
+      <title>{`${pathname !== "/" ? title + " |" : ""} Ivo Vieira`}</title>
       <meta
         name="title"
         content={title}

@@ -30,11 +30,9 @@ export default function Page({ project }: { project: ProjectProps }) {
   return (
     <>
       <HeaderSEO
-        title={project.title}
+        title={`${project.title} • Projetos`}
         description={project.description}
-        ogImage={`title=${project.title}&type=project&image=${
-          project.image?.split("/")[3]
-        }`}
+        ogImage={project.image}
       />
       <GoBackButton />
       <div className="mt-5 flex items-center justify-between">

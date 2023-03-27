@@ -4,7 +4,7 @@ import { Timeline } from "@app/components/Timeline";
 export default function Home() {
   return (
     <section className="flex flex-col gap-y-4">
-      <HeaderSEO title="Inicio" />
+      <HeaderSEO />
       <h1 className="text-5xl font-bold">Olá,</h1>
       <p>
         Meu nome é Ivo, sou estudante de Ciência da Computação na UNIR
