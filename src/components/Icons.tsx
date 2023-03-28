@@ -1,7 +1,10 @@
 import { IconType } from "react-icons";
 import { GiSaberToothedCatHead } from "react-icons/gi";
 import {
+  RiArrowDownSLine,
   RiArrowLeftLine,
+  RiArrowUpSLine,
+  RiCheckLine,
   RiCloseFill,
   RiGithubFill,
   RiGooglePlayFill,
@@ -11,6 +14,9 @@ import {
 export type Icon = IconType;
 
 export const Icons = {
+  Check: RiCheckLine,
+  ChevronDown: RiArrowDownSLine,
+  ChevronUp: RiArrowUpSLine,
   Close: RiCloseFill,
   Github: RiGithubFill,
   GooglePlay: RiGooglePlayFill,

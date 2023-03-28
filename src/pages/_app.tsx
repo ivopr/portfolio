@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useState } from "react";
 import { AppProps } from "next/app";
 import { Inter } from "next/font/google";
 import Script from "next/script";
@@ -28,11 +28,20 @@ const navItems: NavItem[] = [
 ];
 
 export default function App({ Component, pageProps }: AppProps) {
+  const [theme, setTheme] = useState("rose");
+
   return (
-    <main className={inter.className}>
+    <main
+      className={`${inter.className}`}
+      data-theme={theme}
+    >
       <div className="flex h-screen flex-1 flex-col items-center font-inter text-white">
         <Suspense fallback={<div>Loading...</div>}>
-          <Header items={navItems} />
+          <Header
+            setTheme={setTheme}
+            items={navItems}
+            theme={theme}
+          />
           <section className="mt-12 max-w-2xl w-full px-4 pt-5 md:pt-10 flex flex-1 flex-col">
             <Component {...pageProps} />
           </section>

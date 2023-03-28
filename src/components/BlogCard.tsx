@@ -16,23 +16,23 @@ export default function BlogCard({ title, slug }: Partial<PostProps>) {
               loading="lazy"
             /> */}
           </div>
-          <h4 className="pt-2 text-sm font-bold text-gray-one transition-colors duration-100 ease-linear group-hover:text-gray-300">
+          <h4 className="pt-2 text-sm font-bold text-zinc-400 transition-colors duration-100 ease-linear group-hover:text-gray-300">
             {title}
           </h4>
-          {/* <p className="py-1 font-grotesk text-xs text-gray-one/90 transition-colors duration-100 ease-linear group-hover:text-gray-300">
+          {/* <p className="py-1 font-grotesk text-xs text-zinc-400/90 transition-colors duration-100 ease-linear group-hover:text-gray-300">
           {description}
         </p> */}
           <div className="flex w-full items-center justify-between pt-2">
             {/* <Link
             href="/single-blog"
-            className="group flex items-center rounded bg-gray-1001 p-2 text-sm text-gray-one transition-colors duration-100 ease-linear hover:bg-gray-1001/70"
+            className="group flex items-center rounded bg-gray-1001 p-2 text-sm text-zinc-400 transition-colors duration-100 ease-linear hover:bg-gray-1001/70"
           >
             Read
-            <HiArrowRight className="ml-2 text-gray-one transition-colors duration-100 ease-linear group-hover:text-gray-100" />
+            <HiArrowRight className="ml-2 text-zinc-400 transition-colors duration-100 ease-linear group-hover:text-gray-100" />
           </Link> */}
             {/* <div className="flex items-center">
-            <span className="text-xs font-medium text-gray-one">21</span>
-            <HiOutlineEye className="ml-2 text-gray-one transition-colors duration-100 ease-linear group-hover:text-gray-100" />
+            <span className="text-xs font-medium text-zinc-400">21</span>
+            <HiOutlineEye className="ml-2 text-zinc-400 transition-colors duration-100 ease-linear group-hover:text-gray-100" />
           </div> */}
           </div>
         </div>

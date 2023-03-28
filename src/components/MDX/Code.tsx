@@ -53,9 +53,9 @@ export function Code({ children }: { children: React.ReactNode }) {
             className={clsx(
               "mr-2 mb-2 rounded-lg px-2 py-1 text-sm font-medium",
               {
-                "bg-rose-100/10 text-rose-100/70 hover:bg-rose-100/20 hover:text-rose-100":
+                "bg-primary-100/10 text-primary-100/70 hover:bg-primary-100/20 hover:text-primary-100":
                   index !== slide,
-                "bg-rose-100/30 text-white": index === slide
+                "bg-primary-100/30 text-white": index === slide
               }
             )}
             onClick={() => setSlide(index)}

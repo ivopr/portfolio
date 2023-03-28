@@ -5,14 +5,18 @@ import { useRouter } from "next/router";
 import { Icons } from "@app/components/Icons";
 import { cn } from "@app/lib/utils";
 
+import { SelectTheme } from "../SelectTheme";
+
 import { MobileNav } from "./MobileNav";
 
 interface MainNavProps {
   items: NavItem[];
   children?: React.ReactNode;
+  setTheme: (theme: string) => void;
+  theme: string;
 }
 
-export function Header({ items, children }: MainNavProps) {
+export function Header({ items, children, setTheme, theme }: MainNavProps) {
   const [top, setTop] = useState(true);
   const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false);
   const { pathname } = useRouter();
@@ -75,14 +79,20 @@ export function Header({ items, children }: MainNavProps) {
               </Link>
             ))}
           </nav>
-          <Link
-            href="https://github.com/ivopr"
-            target="_blank"
-            rel="noreferrer"
-            className="group rounded bg-gray-1000 p-2 transition-colors duration-100 ease-linear hover:bg-gray-1001"
-          >
-            <Icons.Github className="text-gray-one transition-colors duration-100 ease-linear group-hover:text-gray-100" />
-          </Link>
+          <div className="flex gap-x-1">
+            <SelectTheme
+              setTheme={setTheme}
+              theme={theme}
+            />
+            <Link
+              href="https://github.com/ivopr"
+              target="_blank"
+              rel="noreferrer"
+              className="group rounded bg-gray-1000 p-2 transition-colors duration-100 ease-linear hover:bg-gray-1001"
+            >
+              <Icons.Github className="text-zinc-400 transition-colors duration-100 ease-linear group-hover:text-gray-100" />
+            </Link>
+          </div>
         </div>
         {showMobileMenu && (
           <MobileNav

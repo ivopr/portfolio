@@ -30,16 +30,16 @@ export default function Page({ post }: { post: PostProps }) {
         href="/blog"
         className="group inline-flex rounded bg-gray-1001 p-2 transition-colors duration-100 ease-linear hover:bg-gray-1001/70"
       >
-        <MdOutlineKeyboardBackspace className="text-gray-one transition-colors duration-100 ease-linear group-hover:text-gray-100" />
+        <MdOutlineKeyboardBackspace className="text-zinc-400 transition-colors duration-100 ease-linear group-hover:text-gray-100" />
       </Link>
       <div className="pt-5">
         <h2 className="mx-auto mt-3 max-w-2xl text-3xl font-extrabold leading-snug tracking-tighter md:text-5xl">
           {post?.title}
         </h2>
-        <p className="mx-auto my-3 max-w-2xl text-base font-medium italic leading-snug tracking-tighter text-gray-one md:text-lg">
+        <p className="mx-auto my-3 max-w-2xl text-base font-medium italic leading-snug tracking-tighter text-zinc-400 md:text-lg">
           {post?.description}
         </p>
-        <div className="mx-auto mt-8 grid max-w-4xl text-gray-one">
+        <div className="mx-auto mt-8 grid max-w-4xl text-zinc-400">
           <MDXContent
             components={{
               ...components

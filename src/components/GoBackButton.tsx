@@ -11,7 +11,7 @@ export function GoBackButton() {
       onClick={router.back}
       type="button"
     >
-      <Icons.GoBack className="text-gray-one transition-colors duration-100 ease-linear group-hover:text-gray-100" />
+      <Icons.GoBack className="text-zinc-400 transition-colors duration-100 ease-linear group-hover:text-gray-100" />
     </button>
   );
 }

@@ -49,7 +49,7 @@ export default function Page({ project }: { project: ProjectProps }) {
             >
               <Icons.Github
                 size={20}
-                className="text-gray-one transition-colors duration-100 ease-linear group-hover:text-gray-100"
+                className="text-zinc-400 transition-colors duration-100 ease-linear group-hover:text-gray-100"
               />
             </Link>
           ) : null}
@@ -62,7 +62,7 @@ export default function Page({ project }: { project: ProjectProps }) {
             >
               <Icons.Link
                 size={20}
-                className="text-gray-one transition-colors duration-100 ease-linear group-hover:text-gray-100"
+                className="text-zinc-400 transition-colors duration-100 ease-linear group-hover:text-gray-100"
               />
             </Link>
           ) : null}
@@ -75,27 +75,27 @@ export default function Page({ project }: { project: ProjectProps }) {
             >
               <Icons.GooglePlay
                 size={20}
-                className="text-gray-one transition-colors duration-100 ease-linear group-hover:text-gray-100"
+                className="text-zinc-400 transition-colors duration-100 ease-linear group-hover:text-gray-100"
               />
             </Link>
           ) : null}
         </div>
       </div>
-      <p className="mx-auto my-3 max-w-2xl text-base font-medium italic leading-snug tracking-tighter text-gray-one md:text-lg">
+      <p className="mx-auto my-3 max-w-2xl text-base font-medium italic leading-snug tracking-tighter text-zinc-400 md:text-lg">
         {project.description}
       </p>
       {project.image ? (
         <BlurImage
           src={project.image}
           alt={project?.imageAlt ?? "Project Image"}
-          className="max-h-[256px] w-full rounded object-contain"
+          className="max-h-[256px] w-full rounded object-cover"
           height={0}
           width={0}
           sizes="100vw"
           loading="lazy"
         />
       ) : null}
-      <div className="mx-auto mt-8 grid max-w-4xl text-gray-one">
+      <div className="mx-auto mt-8 grid max-w-4xl text-zinc-400">
         <MDXContent
           components={{
             ...components

@@ -19,14 +19,14 @@ function Inner({ data, lvl }: { data: Node[]; lvl: number }) {
             className={cx(
               "flex items-center space-x-2 border-l-4 border-l-transparent pr-4 before:mr-4 before:ml-2 before:inline-block before:w-4 before:text-right before:[counter-increment:line] before:[content:counter(line)]",
               {
-                "border-l-rose-300/70 bg-rose-200/10 before:text-white/70":
+                "border-l-primary-300/70 bg-primary-200/10 before:text-white/70":
                   node.isHighlighted,
                 "before:text-white/20": !node.isHighlighted
               }
             )}
           >
             <div
-              className={cx("text-rose-100/40", {
+              className={cx("text-primary-100/40", {
                 "pl-[20px]": lvl === 1,
                 "pl-[40px]": lvl === 2,
                 "pl-[60px]": lvl === 3,
@@ -41,7 +41,7 @@ function Inner({ data, lvl }: { data: Node[]; lvl: number }) {
             </div>
             <div
               className={cx(
-                node.isHighlighted ? "text-rose-50" : "text-rose-100/90"
+                node.isHighlighted ? "text-primary-50" : "text-primary-100/90"
               )}
             >
               {node.name}
@@ -64,7 +64,7 @@ export function Files(props: { data: Node[]; title?: string }) {
   return (
     <div className="shadow-surface-elevation-low overflow-hidden rounded-lg bg-white/5 font-mono">
       {props.title ? (
-        <div className="mb-0.5 rounded-md bg-rose-100/10 px-3 py-1 text-xs text-rose-100/70 shadow-sm">
+        <div className="mb-0.5 rounded-md bg-primary-100/10 px-3 py-1 text-xs text-primary-100/70 shadow-sm">
           {props.title}
         </div>
       ) : null}

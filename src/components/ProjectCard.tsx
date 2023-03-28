@@ -25,7 +25,7 @@ export function ProjectCard({
               <BlurImage
                 src={image}
                 alt={imageAlt ?? "Project Image"}
-                className="h-[150px] w-full rounded object-cover"
+                className="h-[150px] w-full rounded object-fill"
                 height={0}
                 width={0}
                 sizes="100vw"
@@ -33,10 +33,10 @@ export function ProjectCard({
               />
             ) : null}
           </div>
-          <h4 className="pt-2 text-sm font-bold text-gray-one transition-colors duration-100 ease-linear group-hover:text-gray-300">
+          <h4 className="pt-2 text-sm font-bold text-zinc-400 transition-colors duration-100 ease-linear group-hover:text-gray-300">
             {title}
           </h4>
-          <p className="py-1 font-grotesk text-xs text-gray-one/90 transition-colors duration-100 ease-linear line-clamp-2 group-hover:text-gray-300">
+          <p className="py-1 font-grotesk text-xs text-zinc-400/90 transition-colors duration-100 ease-linear line-clamp-2 group-hover:text-gray-300">
             {description}
           </p>
         </div>
@@ -52,7 +52,7 @@ export function ProjectCard({
           >
             <Icons.Github
               size={16}
-              className="text-gray-one transition-colors duration-100 ease-linear group-hover:text-gray-100"
+              className="text-zinc-400 transition-colors duration-100 ease-linear group-hover:text-gray-100"
             />
           </Link>
         ) : null}
@@ -65,7 +65,7 @@ export function ProjectCard({
           >
             <Icons.Link
               size={16}
-              className="text-gray-one  transition-colors duration-100 ease-linear group-hover:text-gray-100"
+              className="text-zinc-400  transition-colors duration-100 ease-linear group-hover:text-gray-100"
             />
           </Link>
         ) : null}
@@ -78,7 +78,7 @@ export function ProjectCard({
           >
             <Icons.GooglePlay
               size={16}
-              className="text-gray-one transition-colors duration-100 ease-linear group-hover:text-gray-100"
+              className="text-zinc-400 transition-colors duration-100 ease-linear group-hover:text-gray-100"
             />
           </Link>
         ) : null}

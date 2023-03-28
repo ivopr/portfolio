@@ -1,5 +1,6 @@
 const colors = require("tailwindcss/colors");
 const { fontFamily } = require("tailwindcss/defaultTheme");
+const { createThemes } = require("tw-colors");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -9,19 +10,6 @@ module.exports = {
   },
   theme: {
     extend: {
-      // https://vercel.com/design/color
-      colors: {
-        "gray-1000": "#0D0D0D",
-        "gray-1001": "#161616",
-        "gray-1002": "#212121",
-        gray: {
-          ...colors.zinc,
-          one: "#a5a5a5"
-        },
-        brand: {
-          main: "#fff"
-        }
-      },
       fontFamily: {
         inter: ["Inter", ...fontFamily.sans],
         grotesk: ["Space Grotesk", ...fontFamily.sans]
@@ -75,6 +63,26 @@ module.exports = {
     }
   },
   plugins: [
+    createThemes({
+      sky: {
+        "gray-1000": "#0D0D0D",
+        "gray-1001": "#161616",
+        "gray-1002": "#212121",
+        primary: colors.sky
+      },
+      violet: {
+        "gray-1000": "#0D0D0D",
+        "gray-1001": "#161616",
+        "gray-1002": "#212121",
+        primary: colors.violet
+      },
+      rose: {
+        "gray-1000": "#0D0D0D",
+        "gray-1001": "#161616",
+        "gray-1002": "#212121",
+        primary: colors.rose
+      }
+    }),
     require("@tailwindcss/forms"),
     require("@tailwindcss/line-clamp"),
     require("tailwindcss-hero-patterns")
