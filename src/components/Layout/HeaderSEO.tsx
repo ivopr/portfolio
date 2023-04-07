@@ -8,7 +8,7 @@ interface HeaderSEOProps {
 }
 
 export function HeaderSEO({ title, description, ogImage }: HeaderSEOProps) {
-  const hostname = typeof window !== "undefined" ? window.origin : "";
+  const hostname = "https://ivo.vist.gg";
   const { pathname } = useRouter();
 
   return (
@@ -48,11 +48,11 @@ export function HeaderSEO({ title, description, ogImage }: HeaderSEOProps) {
         <>
           <meta
             property="og:image"
-            content={`${hostname}${ogImage}`}
+            content={`${hostname}/${ogImage}`}
           />
           <meta
             property="twitter:image"
-            content={`${hostname}${ogImage}`}
+            content={`${hostname}/${ogImage}`}
           />
         </>
       ) : null}
