@@ -1,13 +1,13 @@
 import { useRouter } from "next/router";
 
-import { Icons } from "./Icons";
+import { Icons } from "../Icons";
 
 export function GoBackButton() {
   const router = useRouter();
 
   return (
     <button
-      className="group inline-flex rounded bg-gray-1001 p-2 transition-colors duration-100 ease-linear hover:bg-gray-1001/70 w-fit"
+      className="group inline-flex rounded bg-zinc-900 p-2 transition-colors duration-100 ease-linear hover:bg-zinc-900/70 w-fit"
       onClick={router.back}
       type="button"
     >

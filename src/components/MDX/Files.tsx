@@ -1,7 +1,6 @@
 /* eslint-disable react/destructuring-assignment */
 import React from "react";
-import DocumentTextIcon from "@heroicons/react/outline/DocumentTextIcon";
-import FolderIcon from "@heroicons/react/outline/FolderIcon";
+import { RiFileTextLine, RiFolder2Line } from "react-icons/ri";
 import cx from "clsx";
 
 type Node = {
@@ -34,9 +33,9 @@ function Inner({ data, lvl }: { data: Node[]; lvl: number }) {
               })}
             >
               {!node.children ? (
-                <DocumentTextIcon className="w-4" />
+                <RiFileTextLine className="w-4" />
               ) : (
-                <FolderIcon className="w-4" />
+                <RiFolder2Line className="w-4" />
               )}
             </div>
             <div

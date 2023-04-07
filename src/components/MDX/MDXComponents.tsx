@@ -89,30 +89,39 @@ export const components = {
   Img: ({
     bleed,
     caption,
+    isVertical,
     ...props
   }: {
     children: React.ReactNode;
     bleed?: boolean;
     caption?: string;
+    isVertical?: boolean;
   } & ImageProps) => (
     <>
       <div
         className={cx({
-          "xl:!col-start-2 xl:!col-end-4": bleed === true
+          "xl:!col-start-2 xl:!col-end-4": bleed === true,
+          "w-40": isVertical,
+          "w-full": !isVertical
         })}
       >
         <BlurImage
-          className="w-full rounded object-contain"
+          className={cx("rounded object-contain", {
+            "w-40": isVertical,
+            "w-full": !isVertical
+          })}
           height={0}
           width={0}
           sizes="100vw"
           loading="lazy"
           {...props}
         />
+        {caption ? (
+          <div className="mt-2 text-sm italic text-primary-100/60">
+            {caption}
+          </div>
+        ) : null}
       </div>
-      {caption ? (
-        <div className="mt-2 text-sm italic text-primary-100/60">{caption}</div>
-      ) : null}
     </>
   ),
   blockquote: (props: any) => (

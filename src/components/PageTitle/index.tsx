@@ -1,4 +1,4 @@
-import { GoBackButton } from "./GoBackButton";
+import { GoBackButton } from "../Button/GoBack";
 
 interface PageTitleProps {
   noGoBack?: boolean;

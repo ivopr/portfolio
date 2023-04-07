@@ -25,7 +25,7 @@ export default function BlogCard({ title, slug }: Partial<PostProps>) {
           <div className="flex w-full items-center justify-between pt-2">
             {/* <Link
             href="/single-blog"
-            className="group flex items-center rounded bg-gray-1001 p-2 text-sm text-zinc-400 transition-colors duration-100 ease-linear hover:bg-gray-1001/70"
+            className="group flex items-center rounded bg-zinc-900 p-2 text-sm text-zinc-400 transition-colors duration-100 ease-linear hover:bg-zinc-900/70"
           >
             Read
             <HiArrowRight className="ml-2 text-zinc-400 transition-colors duration-100 ease-linear group-hover:text-gray-100" />

@@ -1,5 +1,4 @@
 import { IconType } from "react-icons";
-import { GiSaberToothedCatHead } from "react-icons/gi";
 import {
   RiArrowDownSLine,
   RiArrowLeftLine,
@@ -8,7 +7,8 @@ import {
   RiCloseFill,
   RiGithubFill,
   RiGooglePlayFill,
-  RiLink
+  RiLink,
+  RiMenuLine
 } from "react-icons/ri";
 
 export type Icon = IconType;
@@ -22,5 +22,5 @@ export const Icons = {
   GooglePlay: RiGooglePlayFill,
   GoBack: RiArrowLeftLine,
   Link: RiLink,
-  Logo: GiSaberToothedCatHead
+  Menu: RiMenuLine
 };

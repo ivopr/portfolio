@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useMDXComponent } from "next-contentlayer/hooks";
 
 import { BlurImage } from "@app/components/BlurImage";
-import { GoBackButton } from "@app/components/GoBackButton";
+import { GoBackButton } from "@app/components/Button/GoBack";
 import { Icons } from "@app/components/Icons";
 import { HeaderSEO } from "@app/components/Layout/HeaderSEO";
 import { components } from "@app/components/MDX/MDXComponents";
@@ -45,7 +45,7 @@ export default function Page({ project }: { project: ProjectProps }) {
               href={project.githubLink}
               target="_blank"
               rel="noreferrer"
-              className="group rounded bg-gray-1001 p-2 transition-colors duration-100 ease-linear hover:bg-gray-1001/70"
+              className="group rounded bg-zinc-900 p-2 transition-colors duration-100 ease-linear hover:bg-zinc-900/70"
             >
               <Icons.Github
                 size={20}
@@ -58,7 +58,7 @@ export default function Page({ project }: { project: ProjectProps }) {
               href={project.liveLink}
               target="_blank"
               rel="noreferrer"
-              className="group rounded bg-gray-1001 p-2 transition-colors duration-100 ease-linear hover:bg-gray-1001/70"
+              className="group rounded bg-zinc-900 p-2 transition-colors duration-100 ease-linear hover:bg-zinc-900/70"
             >
               <Icons.Link
                 size={20}
@@ -71,7 +71,7 @@ export default function Page({ project }: { project: ProjectProps }) {
               href={project.googlePlayLink}
               target="_blank"
               rel="noreferrer"
-              className="group rounded bg-gray-1001 p-2 transition-colors duration-100 ease-linear hover:bg-gray-1001/70"
+              className="group rounded bg-zinc-900 p-2 transition-colors duration-100 ease-linear hover:bg-zinc-900/70"
             >
               <Icons.GooglePlay
                 size={20}

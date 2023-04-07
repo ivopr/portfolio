@@ -1,9 +1,49 @@
 ---
 title: "Ictiobiometria"
-description: "Um aplicativo para dispositivos móveis que auxilia na medição de peixes."
+description: "Um aplicativo para dispositivos móveis para medicão automática de peixes com apoio de inteligência artificial."
 publishedAt: "2023-03-23"
 image: "/images/project/ictiobiometria-banner.png"
 liveLink: "https://ictiobiometria.unir.br"
 googlePlayLink: "https://play.google.com/store/apps/details?id=com.ictiobiometria.tambaqui"
 status: "published"
 ---
+
+Segundo a Organização das Nações Unidas para a Agricultura e Alimentação (FAO), no Brasil, estima-se que cerca de 3,5 milhões de pessoas estão direta ou indiretamente envolvidas com a pesca e a aquicultura. Em 2017, a produção total da pesca de captura foi estimada em 704.100 toneladas. A maioria (mais de 60%) do total de desembarques de peixes origina-se da pesca artesanal, que representa mais de 90% do emprego no setor de captura, onde, na época se encontrava com 1.083.778 pescadores em tempo integral.
+\
+\
+Ainda segundo a FAO, na América Latina, o Brasil é o país que mais importa pescado, chegando a um total de USD 1.4 bilhões em 2017 enquanto a exportação no mesmo ano foi de USD 253 milhões.
+\
+\
+Com números tão grandes assim, a confecção de uma plataforma para a unificação e difusão de tal informação é de extrema importância para qualquer parte que possa ter interesse no setor pesqueiro, e na situação ambiental e ictiológica ao redor dessa atividade.
+\
+\
+O Ictiobiometria é uma das possíveis soluções para o problema de indexação dessa informação, que consequentemente fornece uma ferramenta para auxiliar no conhecimento do próprio pescado. Com auxilio de inteligência artificial, a aplicação executa em nuvem um processo de medição automatizado com base numa image digital capturada pelo próprio dispositivo.
+\
+\
+Essa plataforma consiste de três sistemas, uma Web API (_Application Program Interface_) responsável pelo tratamento e manuseamento de dados, uma Web API responsável pela execução da inteligência artificial responsável pela medição do pescado e por fim a aplicação para dipositivos móveis, o Ictiobiometria.
+\
+\
+O aplicativo foi construído com a linguagem de programação [TypeScript](https://typescriptlang.org), que é um _superset_ da popular linguagem de programação [JavaScript](https://www.ecma-international.org/publications-and-standards/standards/ecma-262/) (afinal, JavaScript e supercola resolvem tudo), aproveitando de facilidades oferecidas por _frameworks_ como [React Native](https://reactnative.dev) e [Expo](https://expo.dev), possibilitando assim uma futura expansão no suporte de dispositivos móveis, devido a suas capacidades multiplataforma.
+
+<div className="flex gap-x-5 mx-auto my-5">
+  <Img
+    caption="Boas Vindas e introdução"
+    isVertical
+    src="https://play-lh.googleusercontent.com/2SMsIRFEWCPMYdcsj4VcTHkUT5Lhr1eH69YlBzESsB_tgh_nLgQ7X5-wQUqkyWmsfN3M=w526-h296"
+    alt="Ictiobiometria Screenshot 1"
+  />
+  <Img
+    caption="Detalhes de um pescado submetido"
+    isVertical
+    src="https://play-lh.googleusercontent.com/TO06_Wxk1H7pP7TeN-OnbLds5D6t9NXCo-De0vXvwtR3P-AnTnz6-6FAS4VTtWWGzLA=w526-h296"
+    alt="Ictiobiometria Screenshot 2"
+  />
+  <Img
+    caption="Lista de pescados submetidos (pessoal)"
+    isVertical
+    src="https://play-lh.googleusercontent.com/sMlp4xL23_mAs1J7h49TwzFOvu9XWJJ42YJ1bp9dmOn-DCN0qDy9uenDnUaa9e1GUUpv=w526-h296"
+    alt="Ictiobiometria Screenshot 3"
+  />
+</div>
+
+Por trás de tudo isso, há uma conexão com o [Firebase](https://firebase.google.com), que é utilizado para trazer as funcionalidades de autenticação, analíticos e logs. É uma aplicação _offline first_, ou seja, a conexão com a internet não é obrigatória, porém é necessária para o envio de pescados para medição. Para alcançar isso, um conjunto de bibliotecas é utilizado, sendo algumas delas [Mobx](https://mobx.js.org) e [React Native MMKV](https://github.com/mrousavy/react-native-mmkv) para estruturação de dados e armazenamento persistente no dispositivo.

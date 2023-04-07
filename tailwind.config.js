@@ -64,27 +64,19 @@ module.exports = {
   },
   plugins: [
     createThemes({
+      emerald: {
+        primary: colors.emerald
+      },
       sky: {
-        "gray-1000": "#0D0D0D",
-        "gray-1001": "#161616",
-        "gray-1002": "#212121",
         primary: colors.sky
       },
       violet: {
-        "gray-1000": "#0D0D0D",
-        "gray-1001": "#161616",
-        "gray-1002": "#212121",
         primary: colors.violet
       },
       rose: {
-        "gray-1000": "#0D0D0D",
-        "gray-1001": "#161616",
-        "gray-1002": "#212121",
         primary: colors.rose
       }
     }),
-    require("@tailwindcss/forms"),
-    require("@tailwindcss/line-clamp"),
     require("tailwindcss-hero-patterns")
   ]
 };

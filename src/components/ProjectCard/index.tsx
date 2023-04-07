@@ -1,7 +1,7 @@
 import Link from "next/link";
 
-import { BlurImage } from "./BlurImage";
-import { Icons } from "./Icons";
+import { BlurImage } from "../BlurImage";
+import { Icons } from "../Icons";
 
 export function ProjectCard({
   slug,
@@ -48,7 +48,7 @@ export function ProjectCard({
             href={githubLink}
             target="_blank"
             rel="noreferrer"
-            className="group rounded bg-gray-1001 p-2 transition-colors duration-100 ease-linear hover:bg-gray-1001/70"
+            className="group rounded bg-zinc-900 p-2 transition-colors duration-100 ease-linear hover:bg-zinc-900/70"
           >
             <Icons.Github
               size={16}
@@ -61,7 +61,7 @@ export function ProjectCard({
             href={liveLink}
             target="_blank"
             rel="noreferrer"
-            className="group rounded bg-gray-1001 p-2 transition-colors duration-100 ease-linear hover:bg-gray-1001/70"
+            className="group rounded bg-zinc-900 p-2 transition-colors duration-100 ease-linear hover:bg-zinc-900/70"
           >
             <Icons.Link
               size={16}
@@ -74,7 +74,7 @@ export function ProjectCard({
             href={googlePlayLink}
             target="_blank"
             rel="noreferrer"
-            className="group rounded bg-gray-1001 p-2 transition-colors duration-100 ease-linear hover:bg-gray-1001/70"
+            className="group rounded bg-zinc-900 p-2 transition-colors duration-100 ease-linear hover:bg-zinc-900/70"
           >
             <Icons.GooglePlay
               size={16}

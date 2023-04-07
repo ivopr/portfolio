@@ -1,6 +1,5 @@
 import Link from "next/link";
 
-import { Icons } from "@app/components/Icons";
 import { useLockBody } from "@app/hooks/use-lock-body";
 import { cn } from "@app/lib/utils";
 
@@ -31,7 +30,6 @@ export function MobileNav({
           className="flex items-center space-x-2"
           onClick={closeNavbar}
         >
-          <Icons.Logo />
           <span className="font-bold">Ivo Vieira</span>
         </Link>
         <nav className="grid grid-flow-row auto-rows-max text-sm">

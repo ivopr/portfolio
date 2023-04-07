@@ -33,7 +33,7 @@ export function Header({ items, children, setTheme, theme }: MainNavProps) {
   return (
     <header
       className={`fixed top-0 h-12 z-40 w-full border-b border-zinc-900 ${
-        !top && "bg-transparent shadow-lg backdrop-blur-sm"
+        !top && "bg-zinc-950/60 shadow-lg backdrop-blur-sm"
       }`}
     >
       <div className="mx-auto max-w-5xl">
@@ -43,8 +43,6 @@ export function Header({ items, children, setTheme, theme }: MainNavProps) {
               className="hidden items-center space-x-2 md:flex"
               href="/"
             >
-              <Icons.Logo />
-
               <span className="hidden font-bold sm:inline-block">
                 Ivo Vieira
               </span>
@@ -52,9 +50,9 @@ export function Header({ items, children, setTheme, theme }: MainNavProps) {
 
             <button
               className="flex items-center space-x-2 md:hidden"
-              onClick={() => setShowMobileMenu(!showMobileMenu)}
+              onClick={() => setShowMobileMenu((prevState) => !prevState)}
             >
-              {showMobileMenu ? <Icons.Close /> : <Icons.Logo />}
+              {showMobileMenu ? <Icons.Close /> : <Icons.Menu />}
               <span className="font-bold">
                 {showMobileMenu ? "Close" : "Menu"}
               </span>
@@ -88,7 +86,7 @@ export function Header({ items, children, setTheme, theme }: MainNavProps) {
               href="https://github.com/ivopr"
               target="_blank"
               rel="noreferrer"
-              className="group rounded bg-gray-1000 p-2 transition-colors duration-100 ease-linear hover:bg-gray-1001"
+              className="group rounded bg-transparent p-2 transition-colors duration-100 ease-linear hover:bg-zinc-900"
             >
               <Icons.Github className="text-zinc-400 transition-colors duration-100 ease-linear group-hover:text-gray-100" />
             </Link>

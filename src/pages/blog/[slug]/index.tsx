@@ -28,7 +28,7 @@ export default function Page({ post }: { post: PostProps }) {
     <section className="mx-auto max-w-2xl px-2 pt-10">
       <Link
         href="/blog"
-        className="group inline-flex rounded bg-gray-1001 p-2 transition-colors duration-100 ease-linear hover:bg-gray-1001/70"
+        className="group inline-flex rounded bg-zinc-900 p-2 transition-colors duration-100 ease-linear hover:bg-zinc-900/70"
       >
         <MdOutlineKeyboardBackspace className="text-zinc-400 transition-colors duration-100 ease-linear group-hover:text-gray-100" />
       </Link>
