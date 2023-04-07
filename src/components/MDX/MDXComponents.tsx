@@ -97,32 +97,28 @@ export const components = {
     caption?: string;
     isVertical?: boolean;
   } & ImageProps) => (
-    <>
-      <div
-        className={cx({
-          "xl:!col-start-2 xl:!col-end-4": bleed === true,
+    <div
+      className={cx("mt-2.5 md:mt-0", {
+        "xl:!col-start-2 xl:!col-end-4": bleed === true,
+        "w-40": isVertical,
+        "w-full": !isVertical
+      })}
+    >
+      <BlurImage
+        className={cx("rounded object-contain", {
           "w-40": isVertical,
           "w-full": !isVertical
         })}
-      >
-        <BlurImage
-          className={cx("rounded object-contain", {
-            "w-40": isVertical,
-            "w-full": !isVertical
-          })}
-          height={0}
-          width={0}
-          sizes="100vw"
-          loading="lazy"
-          {...props}
-        />
-        {caption ? (
-          <div className="mt-2 text-sm italic text-primary-100/60">
-            {caption}
-          </div>
-        ) : null}
-      </div>
-    </>
+        height={0}
+        width={0}
+        sizes="100vw"
+        loading="lazy"
+        {...props}
+      />
+      {caption ? (
+        <div className="mt-2 text-sm italic text-primary-100/60">{caption}</div>
+      ) : null}
+    </div>
   ),
   blockquote: (props: any) => (
     <blockquote
