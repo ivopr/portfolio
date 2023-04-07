@@ -32,12 +32,12 @@ export function Header({ items, children, setTheme, theme }: MainNavProps) {
 
   return (
     <header
-      className={`fixed top-0 h-12 z-40 w-full border-b border-zinc-900 ${
+      className={`fixed top-0 z-40 h-12 w-full border-b border-zinc-900 ${
         !top && "bg-zinc-950/60 shadow-lg backdrop-blur-sm"
       }`}
     >
       <div className="mx-auto max-w-5xl">
-        <div className="flex h-12 items-center justify-between py-2 px-2">
+        <div className="flex h-12 items-center justify-between p-2">
           <div className="flex justify-between gap-6 md:gap-10">
             <Link
               className="hidden items-center space-x-2 md:flex"

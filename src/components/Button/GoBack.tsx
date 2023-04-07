@@ -7,7 +7,7 @@ export function GoBackButton() {
 
   return (
     <button
-      className="group inline-flex rounded bg-zinc-900 p-2 transition-colors duration-100 ease-linear hover:bg-zinc-900/70 w-fit"
+      className="group inline-flex w-fit rounded bg-zinc-900 p-2 transition-colors duration-100 ease-linear hover:bg-zinc-900/70"
       onClick={router.back}
       type="button"
     >

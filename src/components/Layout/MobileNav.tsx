@@ -41,7 +41,7 @@ export function MobileNav({
               href={item.disabled ? "#" : item.href}
               onClick={closeNavbar}
               className={cn(
-                "flex w-full p-2 items-center font-inter text-sm font-medium text-[#888] transition-all duration-75 ease-linear hover:text-zinc-50",
+                "flex w-full items-center p-2 font-inter text-sm font-medium text-[#888] transition-all duration-75 ease-linear hover:text-zinc-50",
                 item.href.startsWith(`/${segment}`) && "text-white",
                 item.disabled && "cursor-not-allowed opacity-80"
               )}

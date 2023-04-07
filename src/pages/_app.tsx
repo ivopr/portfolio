@@ -42,7 +42,7 @@ export default function App({ Component, pageProps }: AppProps) {
             items={navItems}
             theme={theme}
           />
-          <section className="mt-12 max-w-2xl w-full px-4 pt-5 md:pt-10 flex flex-1 flex-col">
+          <section className="mt-12 flex w-full max-w-2xl flex-1 flex-col px-4 pt-5 md:pt-10">
             <Component {...pageProps} />
           </section>
           <Footer />

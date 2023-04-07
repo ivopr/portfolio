@@ -21,13 +21,13 @@ export const SelectTheme: FC<SelectThemeProps> = ({ setTheme, theme }) => (
   <DropdownMenu.Root>
     <DropdownMenu.Trigger asChild>
       <button
-        className="rounded-full w-7 h-7 my-auto border-2 border-white transition-all bg-primary-400 outline-none hover:bg-primary-500 hover:border-zinc-200"
+        className="my-auto h-7 w-7 rounded-full border-2 border-white bg-primary-400 outline-none transition-all hover:border-zinc-200 hover:bg-primary-500"
         aria-label="Customise options"
       />
     </DropdownMenu.Trigger>
 
     <DropdownMenu.Content
-      className="bg-primary-700/60 p-2 rounded-md"
+      className="rounded-md bg-primary-700/60 p-2"
       sideOffset={5}
     >
       <DropdownMenu.RadioGroup
@@ -38,13 +38,13 @@ export const SelectTheme: FC<SelectThemeProps> = ({ setTheme, theme }) => (
         {["emerald", "sky", "violet", "rose"].map((item, i) => (
           <DropdownMenu.RadioItem
             key={item}
-            className="rounded-full flex items-center h-[25px] relative select-none outline-none data-[highlighted]:bg-primary-200/50"
+            className="relative flex h-[25px] select-none items-center rounded-full outline-none data-[highlighted]:bg-primary-200/50"
             value={item}
           >
             <div
-              className={`rounded-full w-6 h-6 my-auto border-2 border-white transition-all ${bg[i]} ${hoverBg[i]} hover:border-zinc-200`}
+              className={`my-auto h-6 w-6 rounded-full border-2 border-white transition-all ${bg[i]} ${hoverBg[i]} hover:border-zinc-200`}
             >
-              <DropdownMenu.ItemIndicator className="flex w-full h-full items-center justify-center">
+              <DropdownMenu.ItemIndicator className="flex h-full w-full items-center justify-center">
                 <Icons.Check />
               </DropdownMenu.ItemIndicator>
             </div>
